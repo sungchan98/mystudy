@@ -1,13 +1,13 @@
 package com.eomcs.lang.ex07;
 
-//# 메서드 : 개념 및 기본 문법 IV
+// # 메서드 : 개념 및 기본 문법 IV
 //
 public class Exam0240 {
 
   // 4) 메서드 : 리턴값(O), 파라미터(O)
   // => "이 돈 갖고 과자좀 사와!"
   static String hello(String name, int age) {
-    String retVal = String.format("%d살 %s님을 환영합니다!", age, name);
+    String retVal = String.format("%d살 %s님을 환영합니다!", age, name);// 문자열을 리턴함
     return retVal;
   }
 

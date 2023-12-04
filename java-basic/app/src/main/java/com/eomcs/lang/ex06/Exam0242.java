@@ -1,15 +1,17 @@
 package com.eomcs.lang.ex06;
 
-//# 흐름 제어문 - switch 문법 II
+// # 흐름 제어문 - switch 문법 II
 //
 public class Exam0242 {
 
   // 상수를 좀 더 조직적으로 관리하는 방법
   // => enum을 사용하여 상수를 정의한다.
   // => nested enum은 기본이 static 이다.
-  //    그래서 static을 생략해도 된다.
-  //
-  enum Level {
+  // 그래서 static을 생략해도 된다.
+
+  // enum 말고는 다른 값을 못달게 하기 위해서 사용
+
+  enum Level { // enum: 열거, 나열하다. ,값을 따질 필요없이 구분만 함
     GUEST, MEMBER, ADMIN
   }
 

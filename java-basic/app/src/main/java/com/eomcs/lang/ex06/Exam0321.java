@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex06;
 
-//# 흐름 제어문 - break와 continue 활용
+// # 흐름 제어문 - break와 continue 활용
 //
 public class Exam0321 {
   public static void main(String[] args) {
@@ -14,7 +14,8 @@ public class Exam0321 {
     sum = 0;
     while (count < 100) {
       count++;
-      if ((count & 1) == 0) { // count & 1 ==> count & 0x01 ==> count % 2
+      if ((count & 1) == 0) { // count & 1 ==> count & 0x01 ==> count % 2 , 카운트가 짝수인지 홀수인지 구분하기 위해
+                              // 사용
         sum += count;
       }
     }

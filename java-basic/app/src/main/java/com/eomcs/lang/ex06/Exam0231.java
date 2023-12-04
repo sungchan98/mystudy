@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex06;
 
-//# 흐름 제어문 - switch 문법
+// # 흐름 제어문 - switch 문법
 //
 public class Exam0231 {
   public static void main(String[] args) {
@@ -13,8 +13,8 @@ public class Exam0231 {
     // 즉 변수를 사용할 수 없다.
     int x = 1, y = 300;
     switch (x) {
-      case 1 * 300: // OK
-        //      case 1 * y: // 컴파일 오류!
+      case 1 * 300: // OK,리터럴은 절대 값이 바뀌지 않음 ,값이 고정되어야함
+        // case 1 * y: // 컴파일 오류!
     }
   }
 }
