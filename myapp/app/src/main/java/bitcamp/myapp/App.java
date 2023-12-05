@@ -10,8 +10,6 @@ public class App {
     MainMenu.excute();
     Prompt.close();
   }
-
-
 }
 
 
