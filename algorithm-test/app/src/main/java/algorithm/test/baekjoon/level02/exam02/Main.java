@@ -5,9 +5,7 @@ public class Main {
     java.util.Scanner keyIn = new java.util.Scanner(System.in);
     int test = keyIn.nextInt();
 
-    if (test > 100) {
-      System.out.println("100점");
-    } else if (test >= 90) {
+    if (test <= 100 && test >= 90) {
       System.out.println("A");
     } else if (test >= 80) {
       System.out.println("B");
