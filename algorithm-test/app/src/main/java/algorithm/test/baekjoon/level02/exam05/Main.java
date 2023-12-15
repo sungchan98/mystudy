@@ -6,13 +6,22 @@ public class Main {
     int H = keyIn.nextInt();
     int M = keyIn.nextInt();
 
-    int a = H * 60;
-    int b = (a + M) - 45;
+    int a = H * 60; // 시간을 분으로 바꿈
+    int b = (a + M) - 45; // 분으로 합친거에서 45분을 뺏음
     int c = b % 60; // 분
     int d = b / 60; // 시간
 
-    if (M >= 45) {
-
+    if (b < 45) {
+      d = 23;
+    }
+    if (c == 60) {
+      d += 1;
+      c = 0;
+    }
+    if (d == 24) {
+      d = 0;
+      if (c < 0)
+        c += 60;
     }
 
     System.out.println(d + " " + c);
