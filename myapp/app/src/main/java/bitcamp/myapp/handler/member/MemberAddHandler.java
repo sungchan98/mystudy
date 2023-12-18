@@ -27,6 +27,6 @@ public class MemberAddHandler implements MenuHandler {
     member.password = this.prompt.input("암호? ");
     member.createdDate = this.prompt.input("가입일? ");
 
-    objectRepository.add(member);
+    this.objectRepository.add(member);
   }
 }

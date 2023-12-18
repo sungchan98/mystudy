@@ -22,13 +22,11 @@ public class AssignmentAddHandler implements MenuHandler {
   public void action(Menu menu) {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
-    // 이전 배열에 들어 있는 값을 새 배열에 복사
-    // 새 배열을 가리키도록 배열 레퍼런스를 변경
     Assignment assignment = new Assignment();
     assignment.title = this.prompt.input("과제명? ");
     assignment.content = this.prompt.input("내용? ");
     assignment.deadline = this.prompt.input("제출 마감일? ");
 
-    objectRepository.add(assignment);
+    this.objectRepository.add(assignment);
   }
 }

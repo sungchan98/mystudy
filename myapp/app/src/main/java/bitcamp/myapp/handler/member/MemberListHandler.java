@@ -17,10 +17,9 @@ public class MemberListHandler implements MenuHandler {
   @Override
   public void action(Menu menu) {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
-    System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
 
-    Member[] members = new Member[this.objectRepository.size()];
-    this.objectRepository.toArray(members);
+    System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
+    Member[] members = this.objectRepository.toArray(new Member[0]);
     for (Member member : members) {
 
       System.out.printf("%-10s\t%30s\t%s\n", member.name, member.email, member.createdDate);
