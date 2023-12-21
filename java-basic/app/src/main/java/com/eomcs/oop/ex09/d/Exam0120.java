@@ -5,8 +5,11 @@ public class Exam0120 {
 
   interface ProtocolA {
     void rule1();
+
     void rule2();
+
     void rule3();
+
     void rule4();
   }
 
@@ -30,7 +33,7 @@ public class Exam0120 {
   // 직접 인터페이스를 구현하는 대신에
   // 다음과 같이 추상 클래스를 상속 받는다.
   // - 수퍼 클래스에서 인터페이스를 구현했다면,
-  //   그 서브 클래스들도 인터페이스를 구현한 것이 된다.
+  // 그 서브 클래스들도 인터페이스를 구현한 것이 된다.
   class ProtocolAImpl extends AbstractProtocolA {
     // 이 방식의 장점은 오버라이딩을 통해
     // 인터페이스 규칙 중 필요한 규칙만 구현할 수 있다.

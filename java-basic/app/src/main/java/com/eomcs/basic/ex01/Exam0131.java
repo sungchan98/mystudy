@@ -41,6 +41,11 @@ public class Exam0131 {
     boolean working;
 
     @Override
+    public int hashCode() {
+      return Objects.hash(age, email, gender, name, tel, working);
+    }
+
+    @Override
     public boolean equals(Object obj) {
       if (this == obj)
         return true;
@@ -53,13 +58,10 @@ public class Exam0131 {
           && Objects.equals(name, other.name) && Objects.equals(tel, other.tel)
           && working == other.working;
     }
+
+
   }
 
 }
-
-
-
-
-
 
 
