@@ -22,8 +22,6 @@ public class BoardDeleteHandler extends AbstractMenuHandler {
     System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
-    if (this.objectRepository.remove(index) == null) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
-    }
+    this.objectRepository.remove(index);
   }
 }

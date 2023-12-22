@@ -24,14 +24,9 @@ public class BoardViewHandler extends AbstractMenuHandler {
 
     int index = this.prompt.inputInt("번호? ");
     Board board = this.objectRepository.get(index);
-    if (board == null) {
-      System.out.println("게시글 번호가 유효하지 않습니다.");
-      return;
-    }
-
     System.out.printf("제목: %s\n", board.getTitle());
     System.out.printf("내용: %s\n", board.getContent());
     System.out.printf("작성자: %s\n", board.getWriter());
-    System.out.printf("작성일: %s\n", board.getCreatedDate());
+    System.out.printf("작성일: %1tY-%1tm-%1td %1tH:%1tM:%1tS\n", board.getCreatedDate());
   }
 }
