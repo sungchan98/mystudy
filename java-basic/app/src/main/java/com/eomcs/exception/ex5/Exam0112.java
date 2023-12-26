@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Exam0112 {
 
   static Board read() {
-    try (Scanner keyScan = new Scanner(System.in)) {
+    try (Scanner keyScan = new Scanner(System.in)) { // close() 자동으로 호출 되게 함
       Board board = new Board();
 
       System.out.print("번호> ");
@@ -23,7 +23,7 @@ public class Exam0112 {
       board.setCreatedDate(Date.valueOf(keyScan.nextLine()));
 
       return board;
-    } 
+    }
   }
 
   public static void main(String[] args) {

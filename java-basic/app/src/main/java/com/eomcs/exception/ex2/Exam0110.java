@@ -3,9 +3,9 @@ package com.eomcs.exception.ex2;
 
 public class Exam0110 {
   public static void main(String[] args) {
-    String op = "+";
+    String op = "/";
     int a = 100;
-    int b = 200;
+    int b = 0;
 
     // 리턴 값으로 예외 상황을 알리는 것이 아니라,
     // 예외 정보를 던지는 방식으로 호출자에게 알린다.
