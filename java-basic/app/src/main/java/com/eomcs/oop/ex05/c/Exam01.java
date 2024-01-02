@@ -1,4 +1,4 @@
- // 상속 - 상속하지 않고 기능 추가 II
+// 상속 - 상속하지 않고 기능 추가 II
 package com.eomcs.oop.ex05.c;
 
 public class Exam01 {

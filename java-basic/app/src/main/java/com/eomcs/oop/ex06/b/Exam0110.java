@@ -1,4 +1,3 @@
-
 // 메서드 오버로딩(overloading) - 문법 사용 전
 package com.eomcs.oop.ex06.b;
 
@@ -7,7 +6,7 @@ public class Exam0110 {
   static class Calculator {
 
     // 만약 같은 이름의 메서드를 여러 개 만들 수 없다면,
-    // 다음과 같이 같은 일을 수행(두 수를 더하는 일)하는 메서드라도
+    // 다음과 같이 같은 일을 수행(두 수를 더하는 일)하는 메서드라도 
     // 이름을 다르게 해야 한다.
     static int plusi(int a, int b) {
       return a + b;
@@ -43,5 +42,9 @@ public class Exam0110 {
 
   }
 }
+
+
+
+
 
 

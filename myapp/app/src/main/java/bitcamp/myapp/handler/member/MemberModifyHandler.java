@@ -2,23 +2,20 @@ package bitcamp.myapp.handler.member;
 
 import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.vo.Member;
+import bitcamp.util.List;
 import bitcamp.util.Prompt;
-import java.util.ArrayList;
 
 public class MemberModifyHandler extends AbstractMenuHandler {
 
-  private Prompt prompt;
-  private ArrayList<Member> objectRepository;
+  private List<Member> objectRepository;
 
-  public MemberModifyHandler(ArrayList<Member> objectRepository, Prompt prompt) {
+  public MemberModifyHandler(List<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-
   }
 
   @Override
   protected void action() {
-
     int index = this.prompt.inputInt("번호? ");
     Member old = this.objectRepository.get(index);
     Member member = new Member();

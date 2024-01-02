@@ -2,19 +2,16 @@ package bitcamp.myapp.handler.assignment;
 
 import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.vo.Assignment;
+import bitcamp.util.List;
 import bitcamp.util.Prompt;
-import java.util.ArrayList;
 
 public class AssignmentModifyHandler extends AbstractMenuHandler {
 
+  private List<Assignment> objectRepository;
 
-  private ArrayList<Assignment> objectRepository;
-
-
-  public AssignmentModifyHandler(ArrayList<Assignment> objectRepository, Prompt prompt) {
+  public AssignmentModifyHandler(List<Assignment> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
-
   }
 
   @Override
@@ -28,6 +25,7 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
       assignment.setDeadline(this.prompt.inputDate("제출 마감일(%s)? ", old.getDeadline()));
 
       this.objectRepository.set(index, assignment);
+
     } catch (NumberFormatException e) {
       System.out.println("숫자를 입력하세요!");
 
@@ -39,7 +37,8 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
       System.out.println("다시 시도 하세요.");
 
     } catch (Exception e) {
-      System.out.println("실행오류!");
+      System.out.println("실행 오류!");
     }
+
   }
 }

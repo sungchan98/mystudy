@@ -7,7 +7,7 @@ public class Exam0250 {
   public static void main(String[] args) throws Exception {
     // Calendar 클래스의 생성자는 protected로 접근이 제한되어 있기 때문에
     // 다른 패키지에서 직접 생성자를 호출할 수 없다.
-    // Calendar c = new Calendar(); // 컴파일 오류!
+    //Calendar c = new Calendar(); // 컴파일 오류!
 
     // 오늘 날짜 및 시간 정보를 저장한 객체를 만들어 리턴한다.
     // 달력은 그레고리안 달력을 사용한다.
@@ -41,5 +41,8 @@ public class Exam0250 {
     System.out.println(c.get(Calendar.SECOND)); // 초
   }
 }
+
+
+
 
 
