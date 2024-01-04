@@ -19,9 +19,6 @@ public class MemberListHandler extends AbstractMenuHandler {
   protected void action() {
     System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
 
-    Member[] members = new Member[this.objectRepository.size()];
-    this.objectRepository.toArray(members);
-
     Iterator<Member> iterator = this.objectRepository.iterator();
 
     while (iterator.hasNext()) {
