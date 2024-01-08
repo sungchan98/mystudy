@@ -28,6 +28,9 @@ repositories {//저장소
 // 여기에 다운로드 할 외부 라이브러리를 지정한다.
 // 빌드할 때 자동으로 라이브러리를 다운로드 할 것이다.
 dependencies {
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+
     // Use JUnit Jupiter for testing.
     // 단위 테스트 할 때 사용할 라이브러리
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
