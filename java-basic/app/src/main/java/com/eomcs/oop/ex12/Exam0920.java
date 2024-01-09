@@ -17,6 +17,9 @@ public class Exam0920 {
     class MyConsumer<T> implements Consumer<T> {
       @Override
       public void accept(T item) {
+        // 이 메서드는 List의 각 항목을 반복할 때마다 호출된다
+        // 따라서 List에 대해 반복문을 돌면서 각 항목에 대해 처리할 작업이 있다면
+        // 이 메서드에 작성한다.
         System.out.println(item);
       }
     }
