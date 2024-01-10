@@ -4,16 +4,23 @@ package com.eomcs.generic.ex01;
 import com.eomcs.generic.ex02.Member;
 
 public class Exam0240 {
-
+  // 클래스는 한개이고 제네릭은 코드를 컴파일할때 검사하는 용도이다.
+  // 컴파일이 끝난 다음에는 제네릭 문법은 사라진 상태이다.
   static class Box<T> {
-    T value; 
-    public T get() {return this.value;}
-    public void set(T value) {this.value = value;}
+    T value; // 컴파일 하게되면 Object로 바뀜
+
+    public T get() {
+      return this.value;
+    } // 컴파일 하게되면 Object로 바뀜
+
+    public void set(T value) {
+      this.value = value;
+    } // 컴파일 하게되면 Object로 바뀜
   }
 
   public static void main(String[] args) {
 
-    // 제네릭을 사용하면 한 개의 클래스를 가지고 
+    // 제네릭을 사용하면 한 개의 클래스를 가지고
     // 특정 타입만을 다루는 전용 객체를 만들 수 있다.
     Box<Member> b1 = new Box<>();
     Box<String> b2 = new Box<>();
@@ -25,7 +32,7 @@ public class Exam0240 {
 
     // 제네릭을 사용하면 get() 메서드가 각 타입별로 존재하는 것처럼 사용할 수 있다.
     // => 즉 형변환 할 필요가 없다.
-    Member v1 = b1.get();
+    Member v1 = b1.get(); // Member v1 = (Member) b1.get() : 컴파일 하게 되면 자동으로 이렇게 바뀜
     String v2 = b2.get();
     Integer v3 = b3.get();
 
