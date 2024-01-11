@@ -7,20 +7,13 @@ public class Member implements Serializable {
 
   private static final long serialVersionUID = 100L;
 
+  private int no;
+
   private String email;
   private String name;
   private String password;
   private Date createdDate;
 
-  public static Member createFromCsv(String csv) {
-    String[] values = csv.split(","); // "aaa,aaaa,2023-01-01" ==> {"aaa","aaaa","2023-1-1"}
-    Member obj = new Member();
-    obj.setEmail(values[0]);
-    obj.setName(values[1]);
-    obj.setPassword(values[2]);
-    obj.setCreatedDate(new Date(Long.valueOf(values[3])));
-    return obj;
-  }
 
   @Override
   public String toString() {
@@ -43,6 +36,13 @@ public class Member implements Serializable {
 //    obj.setCreatedDate(new Date(Long.valueOf(values[3])));
 //    return obj;
 //  }
+  public int getNo() {
+    return no;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
+  }
 
   public String getEmail() {
     return email;

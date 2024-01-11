@@ -9,9 +9,7 @@ public class Main {
     int a = sc.nextInt();
     int b = sc.nextInt();
 
-    while (a >= b) {
-      System.out.print(a + " ");
-      a -= 2;
-    }
+    for (int i = 0; i < -20; i--)
+      System.out.printf("%.20f", (double) a / b);
   }
 }
