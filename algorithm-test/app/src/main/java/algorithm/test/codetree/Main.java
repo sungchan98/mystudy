@@ -8,8 +8,17 @@ public class Main {
     Scanner sc = new Scanner(System.in);
     int a = sc.nextInt();
     int b = sc.nextInt();
-
-    for (int i = 0; i < -20; i--)
-      System.out.printf("%.20f", (double) a / b);
+    int i = 0;
+    if (i <= b) {
+      for (i = a; i <= b;) {
+        if (i % 2 != 0) {
+          i *= 2;
+          System.out.print(i + " ");
+        } else if (i % 2 == 0) {
+          i += 3;
+          System.out.print(i + " ");
+        }
+      }
+    }
   }
 }
