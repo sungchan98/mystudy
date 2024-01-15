@@ -1,8 +1,8 @@
 package bitcamp.myapp.dao.network;
 
+import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.DaoException;
-import bitcamp.myapp.dao.MemberDao;
-import bitcamp.myapp.vo.Member;
+import bitcamp.myapp.vo.Board;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -11,14 +11,14 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberDaoImpl implements MemberDao {
+public class BoardDaoImpl implements BoardDao {
 
   String dataName;
   DataInputStream in;
   DataOutputStream out;
   Gson gson;
 
-  public MemberDaoImpl(String dataName, DataInputStream in, DataOutputStream out) {
+  public BoardDaoImpl(String dataName, DataInputStream in, DataOutputStream out) {
     this.dataName = dataName;
     this.in = in;
     this.out = out;
@@ -26,11 +26,11 @@ public class MemberDaoImpl implements MemberDao {
   }
 
   @Override
-  public void add(Member member) {
+  public void add(Board board) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("add");
-      out.writeUTF(gson.toJson(member));
+      out.writeUTF(gson.toJson(board));
 
       String statusCode = in.readUTF();
       String entity = in.readUTF();
@@ -44,7 +44,7 @@ public class MemberDaoImpl implements MemberDao {
   }
 
   @Override
-  public int delete(int no) { // 삭제된 개수
+  public int delete(int no) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("delete");
@@ -56,6 +56,7 @@ public class MemberDaoImpl implements MemberDao {
       if (!statusCode.equals("200")) {
         throw new Exception(entity);
       }
+
       return gson.fromJson(entity, int.class);
 
     } catch (Exception e) {
@@ -64,7 +65,7 @@ public class MemberDaoImpl implements MemberDao {
   }
 
   @Override
-  public List<Member> findAll() {
+  public List<Board> findAll() {
     try {
       out.writeUTF(dataName);
       out.writeUTF("findAll");
@@ -77,8 +78,8 @@ public class MemberDaoImpl implements MemberDao {
         throw new Exception(entity);
       }
 
-      return (List<Member>) gson.fromJson(entity,
-          TypeToken.getParameterized(ArrayList.class, Member.class));
+      return (List<Board>) gson.fromJson(entity,
+          TypeToken.getParameterized(ArrayList.class, Board.class));
 
     } catch (Exception e) {
       throw new DaoException(e);
@@ -86,7 +87,7 @@ public class MemberDaoImpl implements MemberDao {
   }
 
   @Override
-  public Member findBy(int no) {
+  public Board findBy(int no) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("findBy");
@@ -99,7 +100,7 @@ public class MemberDaoImpl implements MemberDao {
         throw new Exception(entity);
       }
 
-      return gson.fromJson(entity, Member.class);
+      return gson.fromJson(entity, Board.class);
 
     } catch (Exception e) {
       throw new DaoException(e);
@@ -107,11 +108,11 @@ public class MemberDaoImpl implements MemberDao {
   }
 
   @Override
-  public int update(Member member) {
+  public int update(Board board) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("update");
-      out.writeUTF(gson.toJson(member));
+      out.writeUTF(gson.toJson(board));
 
       String statusCode = in.readUTF();
       String entity = in.readUTF();
@@ -126,5 +127,4 @@ public class MemberDaoImpl implements MemberDao {
       throw new DaoException(e);
     }
   }
-
 }

@@ -1,8 +1,8 @@
 package bitcamp.myapp.dao.network;
 
-import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.DaoException;
-import bitcamp.myapp.vo.Assignment;
+import bitcamp.myapp.dao.MemberDao;
+import bitcamp.myapp.vo.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -11,14 +11,14 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssignmentDaoImpl implements AssignmentDao {
+public class MemberDaoImpl implements MemberDao {
 
   String dataName;
   DataInputStream in;
   DataOutputStream out;
   Gson gson;
 
-  public AssignmentDaoImpl(String dataName, DataInputStream in, DataOutputStream out) {
+  public MemberDaoImpl(String dataName, DataInputStream in, DataOutputStream out) {
     this.dataName = dataName;
     this.in = in;
     this.out = out;
@@ -26,11 +26,11 @@ public class AssignmentDaoImpl implements AssignmentDao {
   }
 
   @Override
-  public void add(Assignment assignment) {
+  public void add(Member member) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("add");
-      out.writeUTF(gson.toJson(assignment));
+      out.writeUTF(gson.toJson(member));
 
       String statusCode = in.readUTF();
       String entity = in.readUTF();
@@ -44,7 +44,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
   }
 
   @Override
-  public int delete(int no) { // 삭제된 개수
+  public int delete(int no) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("delete");
@@ -56,6 +56,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
       if (!statusCode.equals("200")) {
         throw new Exception(entity);
       }
+
       return gson.fromJson(entity, int.class);
 
     } catch (Exception e) {
@@ -64,7 +65,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
   }
 
   @Override
-  public List<Assignment> findAll() {
+  public List<Member> findAll() {
     try {
       out.writeUTF(dataName);
       out.writeUTF("findAll");
@@ -77,8 +78,8 @@ public class AssignmentDaoImpl implements AssignmentDao {
         throw new Exception(entity);
       }
 
-      return (List<Assignment>) gson.fromJson(entity,
-          TypeToken.getParameterized(ArrayList.class, Assignment.class));
+      return (List<Member>) gson.fromJson(entity,
+          TypeToken.getParameterized(ArrayList.class, Member.class));
 
     } catch (Exception e) {
       throw new DaoException(e);
@@ -86,7 +87,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
   }
 
   @Override
-  public Assignment findBy(int no) {
+  public Member findBy(int no) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("findBy");
@@ -99,7 +100,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
         throw new Exception(entity);
       }
 
-      return gson.fromJson(entity, Assignment.class);
+      return gson.fromJson(entity, Member.class);
 
     } catch (Exception e) {
       throw new DaoException(e);
@@ -107,11 +108,11 @@ public class AssignmentDaoImpl implements AssignmentDao {
   }
 
   @Override
-  public int update(Assignment assignment) {
+  public int update(Member member) {
     try {
       out.writeUTF(dataName);
       out.writeUTF("update");
-      out.writeUTF(gson.toJson(assignment));
+      out.writeUTF(gson.toJson(member));
 
       String statusCode = in.readUTF();
       String entity = in.readUTF();
@@ -126,5 +127,4 @@ public class AssignmentDaoImpl implements AssignmentDao {
       throw new DaoException(e);
     }
   }
-
 }

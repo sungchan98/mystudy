@@ -11,7 +11,7 @@ plugins {
     // 따라서 따로 'java' 플러그인을 추가할 필요가 없다.
     // Apply the application plugin to add support for building a CLI application in Java.
     //id 'application'  //application = java + 실행과 관련된 테스크
-    id 'application' //이 프로젝트는 자바를 컴파일하고 테스팅하고 하는 플러그인을 쓰겠다
+    id 'java-library' //이 프로젝트는 자바를 컴파일하고 테스팅하고 하는 플러그인을 쓰겠다
     //Eclipse IDE 관련 작업을 수행할 수 있는 플러그인
 }
 // 이 프로젝트에서 사용할 라이브러리를 제공하는 서버를 설정한다.
@@ -27,11 +27,7 @@ repositories {//저장소
 // 여기에 다운로드 할 외부 라이브러리를 지정한다.
 // 빌드할 때 자동으로 라이브러리를 다운로드 할 것이다.
 dependencies {
-    // VO 객체와 DAO 인터페이스
-    implementation project(':app-common')
 
-    // DAO Stub 객체
-    implementation project(':app-api')
     implementation 'com.google.code.gson:gson:2.10.1'
 
     // Use JUnit Jupiter for testing.
@@ -55,12 +51,6 @@ java {
     }
 }
 
-// 'application' 플러그인과 관련된 설정이다.
-application {
-    // Define the main class for the application.
-    mainClass = 'bitcamp.myapp.ClientApp' // 'run'명령을 수행할 때 실행시킬 자바 클래스 이름을 지정
-}
-
 
 // 단위 테스트를 수행할때 사용할 설정
 tasks.named('test') {
@@ -75,9 +65,3 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-
-// Gradle로 애플리케이션을 실행했을 때
-// 키보드 입력을 표준 입력 스트림으로 연결하는 방법
-run {
-    standardInput = System.in
-}
