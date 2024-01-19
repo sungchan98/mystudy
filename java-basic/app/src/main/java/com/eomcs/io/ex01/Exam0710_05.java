@@ -10,11 +10,11 @@ public class Exam0710_05 {
     // 결과 예)
     // /Users/bitcamp/git/test
     // src/
-    //   main/
-    //     java/
-    //       com/
-    //         Hello.java
-    //         Hello2.java
+    // main/
+    // java/
+    // com/
+    // Hello.java
+    // Hello2.java
     // build.gradle
     // settings.gradle
     // Hello.java
@@ -34,7 +34,7 @@ public class Exam0710_05 {
     for (File file : files) {
       if (file.isDirectory() && !file.isHidden()) {
         System.out.printf("%s/\n", file.getName());
-        printList(file);
+        printList(file); // 재귀호출
       } else if (file.isFile()) {
         System.out.printf("%s\n", file.getName());
       }

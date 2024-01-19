@@ -40,6 +40,7 @@ public class CalcClient {
       }
     }
 
+
     keyScan.close();
   }
 }

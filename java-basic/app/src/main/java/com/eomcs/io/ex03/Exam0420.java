@@ -10,7 +10,7 @@ public class Exam0420 {
     FileReader in = new FileReader("temp/test2.txt");
 
     // FileReader 객체가 읽을 데이터를 저장할 메모리를 준비한다.
-    CharBuffer charBuf = CharBuffer.allocate(100);
+    CharBuffer charBuf = CharBuffer.allocate(100); // GoF의 펙토리 메소드 패턴
 
     // 읽은 데이터를 CharBuffer 에 저장한다.
     int count = in.read(charBuf);

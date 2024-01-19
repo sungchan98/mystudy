@@ -7,25 +7,17 @@ public class Main {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
     int a = sc.nextInt();
-    int b = sc.nextInt();
-
-    int sumVal = 0;
-    int sumVal2 = 0;
-    if (a <= b) {
-      for (int i = a; i <= b; i++) {
-        if (i % 5 == 0) {
-          sumVal += i;
-        }
+    for (int i = 1; i <= a; i++) {
+      if (i % 2 == 0 && i % 4 != 0) {
+        continue;
       }
-      System.out.println(sumVal);
-    }
-    if (a >= b) {
-      for (int i = a; i >= b; i--) {
-        if (i % 5 == 0) {
-          sumVal2 += i;
-        }
+      if ((i / 8) % 2 == 0) {
+        continue;
       }
-      System.out.println(sumVal2);
+      if (i % 7 < 4) {
+        continue;
+      }
+      System.out.print(i + " ");
     }
   }
 }

@@ -16,11 +16,9 @@ public class Exam0520 {
     File[] files = dir.listFiles();
 
     for (File file : files) {
-      System.out.printf("%s   %s %12d %s\n",
-          file.isDirectory() ? "d" : "-",
-              new Date(file.lastModified()),
-              file.length(),
-              file.getName());
+      System.out.printf("%s   %s %12d %s\n", file.isDirectory() ? "d" : "-",
+          new Date(file.lastModified()), // long값이라 sql Date를 써서 yyyy-MM-dd로 표현
+          file.length(), file.getName());
     }
 
   }

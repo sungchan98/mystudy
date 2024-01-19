@@ -16,11 +16,11 @@ public class Exam0110 {
     // => 이클립스 : 프로젝트 디렉토리를 가리킨다.
     // => 콘솔 : 현재 명령어를 실행하는 위치를 가리킨다.
     //
-    File currentDir = new File("./src/main/java");
+    File currentDir = new File("./src/main/java"); // 파일 정보를 담은 객체를 리턴
     System.out.printf("폴더명: %s\n", currentDir.getName());
     System.out.printf("경로: %s\n", currentDir.getPath());
-    System.out.printf("절대경로: %s\n", currentDir.getAbsolutePath());
-    System.out.printf("계산된 절대경로: %s\n", currentDir.getCanonicalPath());
+    System.out.printf("절대경로: %s\n", currentDir.getAbsolutePath()); // 맨 root path부터 다 알려줌 .은 현재폴더
+    System.out.printf("계산된 절대경로: %s\n", currentDir.getCanonicalPath()); // 최종적으로 계산해서 완료된 경로
 
     System.out.printf("총크기: %d\n", currentDir.getTotalSpace());
     System.out.printf("남은크기: %d\n", currentDir.getFreeSpace());

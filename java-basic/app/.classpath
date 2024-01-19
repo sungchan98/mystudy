@@ -26,9 +26,14 @@
 			<attribute name="gradle_used_by_scope" value="test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-21">
 		<attributes>
 			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.19.0/4d3ab42dd9965b8f2b8bd1b7572e028d6f90a34f/metadata-extractor-2.19.0.jar" sourcepath="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.19.0/b71d8f05908d3720d13ed7eaeeca3f6ed5167fa4/metadata-extractor-2.19.0-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar" sourcepath="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/982a90132e942f302e6fe79d6e78c4bc2e998569/gson-2.10.1-sources.jar">
@@ -52,6 +57,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.1.1-jre/ad575652d84153075dd41ec6177ccb15251262b2/guava-32.1.1-jre.jar" sourcepath="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.1.1-jre/daf195f3635fc515dc56d8e65c2b6a7bc706458f/guava-32.1.1-jre-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/LG/.gradle/caches/modules-2/files-2.1/com.adobe.xmp/xmpcore/6.1.11/852f14101381e527e6d43339d7db1698c970436c/xmpcore-6.1.11.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>

@@ -11,7 +11,7 @@ public class Client0111 {
     try (Scanner keyScan = new Scanner(System.in);
 
         // 서버와 연결
-        Socket socket = new Socket("localhost", 8888);
+        Socket socket = new Socket("192.168.0.29", 8888);
 
         // 서버랑 데이터를 주고 받을 수 있도록 입출력 스트림 객체를 준비한다.
         // => 출력 스트림 객체를 준비하기
