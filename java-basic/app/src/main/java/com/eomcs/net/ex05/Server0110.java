@@ -9,17 +9,13 @@ import java.util.Scanner;
 // 연결지향(connection oriented)
 // => 연결 후에 데이터를 송수신 하기 때문에 데이터 송수신에 대한 신뢰를 보장한다.
 // => TCP 통신 방법이 전형적인 예이다.
-//    예) FTP, Telnet, SMTP, POP3, HTTP 등 
-// 
+// 예) FTP, Telnet, SMTP, POP3, HTTP 등
+//
 public class Server0110 {
   public static void main(String[] args) throws Exception {
-    Scanner keyboardScanner = new Scanner(System.in);
 
     System.out.println("서버 실행 중...");
     ServerSocket ss = new ServerSocket(8888);
-
-    System.out.println("엔터를 치면 대기열에서 기다리고 있는 클라이언트의 소캣을 생성한다.>");
-    keyboardScanner.nextLine();
 
     Socket socket = ss.accept();
     System.out.println("클라이언트와 통신할 소캣을 준비하였다!");
@@ -27,10 +23,10 @@ public class Server0110 {
     Scanner in = new Scanner(socket.getInputStream());
     PrintStream out = new PrintStream(socket.getOutputStream());
 
-    String str = in.nextLine();
+    String str = in.nextLine(); // 한줄의 문자열을 보낼때 까지 기다린다.
     System.out.println("데이터 수신 완료!");
 
-    out.println(str);
+    out.println(str); // 클라이언트가 읽든 안읽든 출력한다. 왜? 랜카드
     System.out.println("데이터 송신 완료!");
 
     in.close();
@@ -39,11 +35,7 @@ public class Server0110 {
     System.out.println("클라이언트 연결 끊기!");
 
     ss.close();
-    keyboardScanner.close();
   }
 }
-
-
-
 
 

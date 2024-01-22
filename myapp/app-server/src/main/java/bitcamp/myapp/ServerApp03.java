@@ -51,7 +51,7 @@ public class ServerApp03 {
           @Override
           public void run() {
             try {
-              ServerApp03.this.service(socket);
+              service(socket);
             } catch (Exception e) {
               System.out.println("클리이언트 요청 처리 중 오류 발생!");
               e.printStackTrace();

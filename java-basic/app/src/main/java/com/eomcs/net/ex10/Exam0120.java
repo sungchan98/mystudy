@@ -12,7 +12,7 @@ public class Exam0120 {
     File file = new File("./sample/test1.jpg");
 
     FileInputStream in = new FileInputStream(file);
-    byte[] bytes = in.readAllBytes();
+    byte[] bytes = in.readAllBytes(); // 10000바이트 이내일때 사용하는 거 추천
     in.close();
 
     Encoder encoder = Base64.getEncoder();
@@ -21,13 +21,5 @@ public class Exam0120 {
   }
 
 }
-
-
-
-
-
-
-
-
 
 
