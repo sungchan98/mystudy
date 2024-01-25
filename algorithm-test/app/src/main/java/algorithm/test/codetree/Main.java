@@ -7,21 +7,16 @@ public class Main {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
-    int val = 0;
-    int cnt = 0;
+    int x = 0;
+    int a = 1;
 
     while (true) {
-      if (n % 2 == 0) {
-        cnt++;
-        n /= 2;
-      } else if (n % 2 != 0) {
-        cnt++;
-        n = (n * 3) + 1;
-      }
-      if (n == 1) {
+      x++;
+      a *= 2;
+      if (n == a) {
         break;
       }
     }
-    System.out.println(cnt);
+    System.out.println(x);
   }
 }

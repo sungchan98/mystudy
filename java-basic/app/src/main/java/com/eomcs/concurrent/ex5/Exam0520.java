@@ -1,4 +1,4 @@
-// sychronized 인스턴스 메서드 - 적용 전
+// sychronized 인스턴스 메서드 - 적용 후
 
 package com.eomcs.concurrent.ex5;
 

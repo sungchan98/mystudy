@@ -10,7 +10,6 @@ public class Exam0610 {
     Worker3 w3 = new Worker3("유관순", job);
     Worker4 w4 = new Worker4("김구", job);
 
-
     w1.start();
     w2.start();
     w3.start();
