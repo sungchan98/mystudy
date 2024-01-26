@@ -45,7 +45,7 @@ public class AssignmentDaoImpl extends AbstractDao<Assignment> implements Assign
     }
     return list.get(index);
   }
-
+ 
   @Override
   public int update(Assignment assignment) {
     int index = indexOf(assignment.getNo());

@@ -28,11 +28,12 @@ repositories {//저장소
 // 빌드할 때 자동으로 라이브러리를 다운로드 할 것이다.
 dependencies {
     // VO 객체와 DAO 인터페이스
-    implementation project(':app-common')
 
-    // DAO Stub 객체
-    implementation project(':app-api')
-    implementation 'com.google.code.gson:gson:2.10.1'
+    // MySQL JDBC Driver
+    implementation 'com.mysql:mysql-connector-j:8.3.0'
+
+    //JSON라이브러리
+//   implementation 'com.google.code.gson:gson:2.10.1'
 
     // Use JUnit Jupiter for testing.
     // 단위 테스트 할 때 사용할 라이브러리

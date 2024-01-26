@@ -7,16 +7,18 @@ public class Main {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
-    int x = 0;
-    int a = 1;
+    boolean satisfied = false;
 
-    while (true) {
-      x++;
-      a *= 2;
-      if (n == a) {
-        break;
+    for (int i = 1; i <= n; i++) {
+      if (n % i == 0 && n / i == 1) {
+        satisfied = true;
       }
     }
-    System.out.println(x);
+
+    if (satisfied == true) {
+      System.out.println("N");
+    } else if (satisfied == false) {
+      System.out.println("C");
+    }
   }
 }

@@ -84,7 +84,7 @@ public class Exam0140 {
       String str = keyScan.nextLine();
 
       if (str.equals("quit")) {
-        t.setCount(-1); // 스레드를 종료하도록 count를 -1fh tjfwjdgksek
+        t.setCount(-1); // 스레드를 종료하도록 count를 -1로 설정한다
         break;
       }
 
