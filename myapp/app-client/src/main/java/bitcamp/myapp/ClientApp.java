@@ -31,7 +31,6 @@ public class ClientApp {
 
   Prompt prompt = new Prompt(System.in);
 
-
   AssignmentDao assignmentDao;
   MemberDao memberDao;
   BoardDao boardDao;
