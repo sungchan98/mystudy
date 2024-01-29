@@ -9,8 +9,11 @@ public class Main {
     int n = sc.nextInt();
 
     for (int i = 0; i < n; i++) {
-      for (int j = n; j > i; j--) {
-        System.out.print(j);
+      for (int j = i; j <= (n - i) * (n - i); j++) {
+        if (j == n - i) {
+          System.out.print(" ");
+        }
+        System.out.print("*");
       }
       System.out.println();
     }

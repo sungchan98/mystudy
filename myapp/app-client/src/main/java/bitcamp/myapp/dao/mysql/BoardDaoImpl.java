@@ -39,7 +39,7 @@ public class BoardDaoImpl implements BoardDao {
       return stmt.executeUpdate(String.format("delete from boards where board_no=%d", no));
 
     } catch (Exception e) {
-      throw new DaoException("데이터 입력 오류", e);
+      throw new DaoException("데이터 삭제 오류", e);
     }
   }
 
@@ -72,7 +72,7 @@ public class BoardDaoImpl implements BoardDao {
   public Board findBy(int no) {
     try {
       Statement stmt = con.createStatement();
-      ResultSet rs = stmt.executeQuery("select * from boards where board_no = " + no);
+      ResultSet rs = stmt.executeQuery("select * from boards where board_no=" + no);
 
       if (rs.next()) {
         Board board = new Board();

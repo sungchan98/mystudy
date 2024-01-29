@@ -34,7 +34,8 @@ public class AssignmentDaoImpl implements AssignmentDao {
   public int delete(int no) {
     try {
       Statement stmt = con.createStatement();
-      return stmt.executeUpdate(String.format("delete from assignments where assigment_no=%d", no));
+      return stmt.executeUpdate(
+          String.format("delete from assignments where assignment_no=%d", no));
     } catch (Exception e) {
       throw new DaoException("데이터 삭제 오류", e);
     }
@@ -67,7 +68,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
   public Assignment findBy(int no) {
     try {
       Statement stmt = con.createStatement();
-      ResultSet rs = stmt.executeQuery("select * from assignment where assignment_no = " + no);
+      ResultSet rs = stmt.executeQuery("select * from assignments where assignment_no=" + no);
 
       if (rs.next()) {
         Assignment assignment = new Assignment();

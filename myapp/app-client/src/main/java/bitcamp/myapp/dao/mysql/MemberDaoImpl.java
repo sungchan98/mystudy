@@ -51,10 +51,10 @@ public class MemberDaoImpl implements MemberDao {
 
       while (rs.next()) {
         Member member = new Member();
-        member.setNo(rs.getInt("board_no"));
+        member.setNo(rs.getInt("member_no"));
         member.setEmail(rs.getString("email"));
         member.setName(rs.getString("name"));
-        member.setCreatedDate(rs.getDate("create_date"));
+        member.setCreatedDate(rs.getDate("created_date"));
 
         list.add(member);
       }
@@ -73,10 +73,10 @@ public class MemberDaoImpl implements MemberDao {
 
       if (rs.next()) {
         Member member = new Member();
-        member.setNo(rs.getInt("board_no"));
+        member.setNo(rs.getInt("member_no"));
         member.setEmail(rs.getString("email"));
         member.setName(rs.getString("name"));
-        member.setCreatedDate(rs.getDate("create_date"));
+        member.setCreatedDate(rs.getDate("created_date"));
 
         return member;
       }
@@ -96,7 +96,8 @@ public class MemberDaoImpl implements MemberDao {
           member.getEmail(), member.getName(), member.getPassword(), member.getNo()));
 
     } catch (Exception e) {
-      throw new DaoException("데이터 입력 오류", e);
+      e.printStackTrace();
+      throw new DaoException("데이터 변경 오류" + e.getMessage(), e);
     }
   }
 }

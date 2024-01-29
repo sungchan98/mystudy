@@ -89,7 +89,11 @@ update boards set category=1;
 
 
 
-
+update members set
+ email='nono@naver.com',
+ name='nono',
+ password='1111'
+where member_no = 4;
 
 
 
