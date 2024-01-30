@@ -9,11 +9,11 @@ public class Main {
     int n = sc.nextInt();
 
     for (int i = 0; i < n; i++) {
-      for (int j = i; j <= (n - i) * (n - i); j++) {
-        if (j == n - i) {
-          System.out.print(" ");
-        }
-        System.out.print("*");
+      for (int j = (n - i) * (n - i); j <= 1; j--) {
+        // if (j == n - i) {
+        // System.out.print(" ");
+        // }
+        System.out.print(j);
       }
       System.out.println();
     }
