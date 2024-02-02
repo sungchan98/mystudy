@@ -23,7 +23,7 @@ public class CommerceAddHandler extends AbstractMenuHandler {
 
     Commerce commerce = new Commerce();
     commerce.setTitle(this.prompt.input("상품명? "));
-    commerce.setPrice(this.prompt.input("가격? "));
+    commerce.setPrice(this.prompt.inputInt("가격? "));
     commerce.setName(this.prompt.input("구매자? "));
     commerce.setCreatedDate(new Date());
 

@@ -10,7 +10,7 @@ public class Commerce implements Serializable {
 
   private int no;
   private String title;
-  private String price;
+  private int price;
   private String name;
   private Date createdDate;
 
@@ -41,11 +41,11 @@ public class Commerce implements Serializable {
     this.title = title;
   }
 
-  public String getPrice() {
+  public int getPrice() {
     return price;
   }
 
-  public void setPrice(String price) {
+  public void setPrice(int price) {
     this.price = price;
   }
 

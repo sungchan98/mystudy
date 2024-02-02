@@ -54,7 +54,7 @@ public class CommerceDaoImpl implements CommerceDao {
         Commerce commerce = new Commerce();
         commerce.setNo(rs.getInt("commerce_no"));
         commerce.setTitle(rs.getString("title"));
-        commerce.setPrice(rs.getString("price"));
+        commerce.setPrice(rs.getInt("price"));
         commerce.setName(rs.getString("name"));
         commerce.setCreatedDate(rs.getDate("created_date"));
 
@@ -79,7 +79,7 @@ public class CommerceDaoImpl implements CommerceDao {
         Commerce commerce = new Commerce();
         commerce.setNo(rs.getInt("commerce_no"));
         commerce.setTitle(rs.getString("title"));
-        commerce.setPrice(rs.getString("price"));
+        commerce.setPrice(rs.getInt("price"));
         commerce.setName(rs.getString("name"));
         commerce.setCreatedDate(rs.getDate("created_date"));
 
