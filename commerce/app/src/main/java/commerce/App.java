@@ -13,7 +13,6 @@ import commerce.handler.commerce.CommerceViewHandler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
     public class App {
 
         Prompt prompt = new Prompt(System.in);
@@ -28,7 +27,7 @@ import java.sql.DriverManager;
         }
 
         public static void main(String[] args) {
-            System.out.println("[과제관리 시스템]");
+            System.out.println("[상품관리 시스템]");
             new App().run();
         }
 

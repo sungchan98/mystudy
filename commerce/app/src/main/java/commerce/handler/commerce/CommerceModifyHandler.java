@@ -30,6 +30,7 @@ public class CommerceModifyHandler extends AbstractMenuHandler {
 
     Commerce commerce = new Commerce();
     commerce.setNo(oldCommerce.getNo()); // 기존 게시글의 번호를 그대로 설정한다.
+    commerce.setCategory(this.prompt.input("카테고리(%s)? ",oldCommerce.getCategory()));
     commerce.setTitle(this.prompt.input("상품명(%s)? ", oldCommerce.getTitle()));
     commerce.setPrice(this.prompt.inputInt("가격(%s)? ", oldCommerce.getPrice()));
     commerce.setName(this.prompt.input("구매자(%s)? ", oldCommerce.getName()));

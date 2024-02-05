@@ -28,11 +28,12 @@ public class CommerceViewHandler extends AbstractMenuHandler {
       return;
     }
     System.out.printf("번호: %d\n", commerce.getNo());
+    System.out.printf("카테고리: %s\n", commerce.getCategory());
     System.out.printf("상품명: %s\n", commerce.getTitle());
     System.out.printf("가격: %s\n", commerce.getPrice());
     System.out.printf("구매자: %s\n", commerce.getName());
    // System.out.printf("주문일: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\n", commerce.getCreatedDate(),commerce.getCreatedDate());
     //System.out.printf("주문일: %1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS\n", commerce.getCreatedDate());
-    System.out.printf("주문일: %1$tF %1$tT\n", commerce.getCreatedDate());
+    System.out.printf("주문일: %1$tF\n", commerce.getCreatedDate());
   }
 }

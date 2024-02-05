@@ -20,8 +20,9 @@ public class CommerceListHandler extends AbstractMenuHandler {
 
   @Override
   protected void action() {
-    System.out.printf("%-4s\t%-15s\t%12s\t%-15s\t%s\n", "번호", "상품명", "가격", "구매자", "구매일");
-    //System.out.printf("%-4s\t%-20s\t%10s\t%-15s\t%-19s\n", "번호", "상품명", "가격", "구매자", "구매일");
+
+  //  System.out.printf("%-4s\t%-20s\t%10s\t%-15s\t%-19s\n", "번호", "상품명", "가격", "구매자", "구매일");
+    System.out.printf("%-4s\t%-20s\t%10s\t%-15s\t%-19s\n", "번호", "상품명", "가격", "구매자", "구매일");
 
     List<Commerce> list = commerceDao.findAll();
 

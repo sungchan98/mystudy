@@ -20,13 +20,26 @@ public class CommerceAddHandler extends AbstractMenuHandler {
 
   @Override
   protected void action() {
-
     Commerce commerce = new Commerce();
+
+      String category = this.prompt.input("카테고리(상의 or 하의 or 신발)? ");
+
+      if (isValidCategory(category)) {
+        commerce.setCategory(category);
+      } else {
+        System.out.println("상의 하의 신발 중 하나의 항목만 입력하세요.");
+        return;
+      }
+
     commerce.setTitle(this.prompt.input("상품명? "));
     commerce.setPrice(this.prompt.inputInt("가격? "));
     commerce.setName(this.prompt.input("구매자? "));
     commerce.setCreatedDate(new Date());
 
     commerceDao.add(commerce);
+  }
+
+  private boolean isValidCategory(String category) {
+    return category.equals("상의") || category.equals("하의") || category.equals("신발");
   }
 }

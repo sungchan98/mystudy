@@ -8,15 +8,16 @@ public class Main {
 
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
-    int cnt = n;
 
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n - i; j++) {
+        System.out.print("* ");
+      }
+      System.out.println();
+    }
     for (int i = n; i > 0; i--) {
-      for (int j = 1; j <= i * i; j++) {
-
-        System.out.print("*");
-        if (j % i == 0) {
-          System.out.print(" ");
-        }
+      for (int j = 0; j < n - i - 1; j++) {
+        System.out.print("* ");
       }
       System.out.println();
     }

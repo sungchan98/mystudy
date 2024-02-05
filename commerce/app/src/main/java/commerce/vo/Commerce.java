@@ -13,6 +13,7 @@ public class Commerce implements Serializable {
   private int price;
   private String name;
   private Date createdDate;
+  private String category;
 
 
   public int getNo() {
@@ -26,13 +27,15 @@ public class Commerce implements Serializable {
   @Override
   public String toString() {
     return "Commerce{" +
-        "title='" + title + '\'' +
+        "category='" + category + '\'' +
+        ", title='" + title + '\'' +
         ", price='" + price + '\'' +
         ", name='" + name + '\'' +
         ", createdDate=" + createdDate +
         '}';
   }
-
+  public String getCategory(){ return category; }
+  public void setCategory(String category){ this.category = category;}
   public String getTitle() {
     return title;
   }

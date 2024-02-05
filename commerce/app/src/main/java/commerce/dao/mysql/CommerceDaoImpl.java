@@ -23,8 +23,8 @@ public class CommerceDaoImpl implements CommerceDao {
     try {
       Statement stmt = con.createStatement();
       stmt.executeUpdate(String.format(
-          "insert into commerces(title,price,name) values('%s','%s','%s')",
-          commerce.getTitle(), commerce.getPrice(), commerce.getName()));
+          "insert into commerces(category,title,price,name) values('%s','%s','%s','%s')",
+          commerce.getCategory() ,commerce.getTitle(), commerce.getPrice(), commerce.getName()));
 
     } catch (Exception e) {
       throw new DaoException("데이터 입력 오류", e);
@@ -78,6 +78,7 @@ public class CommerceDaoImpl implements CommerceDao {
       if (rs.next()) {
         Commerce commerce = new Commerce();
         commerce.setNo(rs.getInt("commerce_no"));
+        commerce.setCategory(rs.getString("category"));
         commerce.setTitle(rs.getString("title"));
         commerce.setPrice(rs.getInt("price"));
         commerce.setName(rs.getString("name"));
@@ -97,8 +98,8 @@ public class CommerceDaoImpl implements CommerceDao {
     try {
       Statement stmt = con.createStatement();
       return stmt.executeUpdate(String.format(
-          "update commerces set title='%s', price='%s', name='%s' where commerce_no=%d",
-          commerce.getTitle(), commerce.getPrice(), commerce.getName(), commerce.getNo()));
+          "update commerces set category='%s' , title='%s', price='%s', name='%s' where commerce_no=%d",
+         commerce.getCategory(), commerce.getTitle(), commerce.getPrice(), commerce.getName(), commerce.getNo()));
 
     } catch (Exception e) {
       throw new DaoException("데이터 입력 오류", e);
