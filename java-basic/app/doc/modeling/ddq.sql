@@ -47,8 +47,7 @@ CREATE TABLE lms_application (
 )
 COMMENT '수강신청';
 
--- 수강신청
-ALTER TABLE lms_application
+-- 수강신청yujh
   ADD CONSTRAINT PK_lms_application -- 수강신청 기본키
   PRIMARY KEY (
   application_no -- 수강신청번호
