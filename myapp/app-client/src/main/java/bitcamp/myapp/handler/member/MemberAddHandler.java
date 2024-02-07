@@ -24,6 +24,5 @@ public class MemberAddHandler extends AbstractMenuHandler {
     member.setCreatedDate(new Date());
 
     memberDao.add(member);
-
   }
 }

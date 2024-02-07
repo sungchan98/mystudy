@@ -31,10 +31,10 @@ public class ClientApp {
 
   Prompt prompt = new Prompt(System.in);
 
-  AssignmentDao assignmentDao;
-  MemberDao memberDao;
   BoardDao boardDao;
   BoardDao greetingDao;
+  AssignmentDao assignmentDao;
+  MemberDao memberDao;
 
   MenuGroup mainMenu;
 
@@ -49,22 +49,14 @@ public class ClientApp {
   }
 
   void prepareDatabase() {
-
     try {
-      // 1) 서버와 연결한 후 연결 정보 준비
-      // => new Socket(서버주소, 포트번호)
-      //    - 서버 주소: IP 주소, 도메인명
-      //    - 포트 번호: 서버 포트 번호
-      // => 로컬 컴퓨터를 가리키는 주소
-      //    - IP 주소: 127.0.0.1
-      //    - 도메인명: localhost
-
       // JVM이 JDBC 드라이버 파일(.jar)에 설정된대로 자동으로 처리한다.
-//      Driver driver = new com.mysql.jdbc.Driver();
+//      Driver driver = new com.mysql.cj.jdbc.Driver();
 //      DriverManager.registerDriver(driver);
+
       Connection con = DriverManager.getConnection(
-          //"jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123"
-          "jdbc:mysql://db-ld28h-kr.vpc-pub-cdb.ntruss.com/studydb", "study", "Bitcamp!@#123");
+          //"jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
+          "jdbc:mysql://db-ld27b-kr.vpc-pub-cdb.ntruss.com/studydb", "study", "Bitcamp!@#123");
 
       boardDao = new BoardDaoImpl(con, 1);
       greetingDao = new BoardDaoImpl(con, 2);
@@ -72,11 +64,10 @@ public class ClientApp {
       memberDao = new MemberDaoImpl(con);
 
     } catch (Exception e) {
-      System.out.println("통신오류!");
+      System.out.println("통신 오류!");
       e.printStackTrace();
     }
   }
-
 
   void prepareMenu() {
     mainMenu = MenuGroup.getInstance("메인");
@@ -123,5 +114,5 @@ public class ClientApp {
       }
     }
   }
-}
 
+}

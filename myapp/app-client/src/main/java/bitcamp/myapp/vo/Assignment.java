@@ -15,7 +15,8 @@ public class Assignment implements Serializable {
   @Override
   public String toString() {
     return "Assignment{" +
-        "title='" + title + '\'' +
+        "no=" + no +
+        ", title='" + title + '\'' +
         ", content='" + content + '\'' +
         ", deadline=" + deadline +
         '}';

@@ -28,9 +28,20 @@ public class CommerceModifyHandler extends AbstractMenuHandler {
       return;
     }
 
+
+
     Commerce commerce = new Commerce();
     commerce.setNo(oldCommerce.getNo()); // 기존 게시글의 번호를 그대로 설정한다.
-    commerce.setCategory(this.prompt.input("카테고리(%s)? ",oldCommerce.getCategory()));
+
+    String category = this.prompt.input("카테고리(%s) (상의 or 하의 or 신발)? ",oldCommerce.getCategory());
+
+    if (isValidCategory(category)) {
+      commerce.setCategory(category);
+    } else {
+      System.out.println("상의 하의 신발 중 하나의 항목만 입력하세요.");
+      return;
+    }
+
     commerce.setTitle(this.prompt.input("상품명(%s)? ", oldCommerce.getTitle()));
     commerce.setPrice(this.prompt.inputInt("가격(%s)? ", oldCommerce.getPrice()));
     commerce.setName(this.prompt.input("구매자(%s)? ", oldCommerce.getName()));
@@ -39,5 +50,9 @@ public class CommerceModifyHandler extends AbstractMenuHandler {
     commerceDao.update(commerce);
     System.out.println("상품을 변경했습니다");
 
+  }
+
+  private boolean isValidCategory(String category) {
+    return category.equals("상의") || category.equals("하의") || category.equals("신발");
   }
 }

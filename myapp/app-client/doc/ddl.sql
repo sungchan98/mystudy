@@ -1,43 +1,43 @@
 -- DDL(Data Definition Language)
 
-
-drop table boards; --테이블 삭제
+drop table boards;
 
 create table boards(
   board_no int primary key auto_increment,
   title varchar(255) not null,
   content text not null,
   writer varchar(30) not null,
-  create_date datetime null default now()
+  created_date datetime null default now()
 );
 
-insert into boards(board_no, title,content,writer)
- values(1,'제목1', '내용1', '홍길동');
-insert into boards(board_no,title,content,writer)
- values(2,'제목2', '내용2', '임꺽정');
-insert into boards(board_no,title,content,writer)
- values(3,'제목3', '내용3', '유관순');
-insert into boards(board_no,title,content,writer)
- values(4,'제목4', '내용4', '안중근');
-insert into boards(board_no,title,content,writer)
- values(5,'제목5', '내용5', '윤봉길');
+insert into boards(board_no,title,content,writer) 
+  values(1, '제목1','내용1','홍길동');
+insert into boards(board_no,title,content,writer) 
+  values(2, '제목2','내용2','임꺽정');
+insert into boards(board_no,title,content,writer) 
+  values(3, '제목3','내용3','유관순');
+insert into boards(board_no,title,content,writer) 
+  values(4, '제목4','내용4','안중근');
+insert into boards(board_no,title,content,writer) 
+  values(5, '제목5','내용5','윤봉길');
 
-select *
-from boards; -- 서버에서 어던 데이터가 들어있는지 응답을 보내줌
+select * 
+from boards;
 
-select *
-from boards
+select * 
+from boards 
 where board_no = 3;
 
-update boards set
- title='okok',
- content='nono',
- writer='hoho'
+update boards set 
+  title='okok', 
+  content='nono', 
+  writer='hoho' 
 where board_no = 3;
 
 delete from boards where board_no=3;
 
-drop table assignment;
+
+drop table assignments;
 
 create table assignments(
   assignment_no int primary key auto_increment,
@@ -46,17 +46,18 @@ create table assignments(
   deadline date not null
 );
 
-insert into assignments(assignment_no,title,content,deadline)
+insert into assignments(assignment_no,title,content,deadline) 
   values(1,'과제1','내용1','2024-1-1');
-insert into assignments(assignment_no,title,content,deadline)
+insert into assignments(assignment_no,title,content,deadline) 
   values(2,'과제2','내용2','2024-2-2');
-insert into assignments(assignment_no,title,content,deadline)
+insert into assignments(assignment_no,title,content,deadline) 
   values(3,'과제3','내용3','2024-3-3');
-insert into assignments(assignment_no,title,content,deadline)
+insert into assignments(assignment_no,title,content,deadline) 
   values(4,'과제4','내용4','2024-4-4');
-insert into assignments(assignment_no,title,content,deadline)
+insert into assignments(assignment_no,title,content,deadline) 
   values(5,'과제5','내용5','2024-5-5');
 
+drop table members;
 
 create table members(
   member_no int primary key auto_increment,
@@ -77,31 +78,20 @@ insert into members(email,name,password,created_date)
 insert into members(email,name,password,created_date)
   values('user5@test.com','user5',sha2('1111',256),'2024-5-5');
 
-
-
-
-
 alter table boards
   add column category int not null;
 
 update boards set category=1;
 
 
+create table commerces(
+  commerce_no int primary key auto_increment,
+  category varchar(255) not null,
+  title varchar(255) not null,
+  price text not null,
+  name varchar(30) not null,
+  created_date datetime null default now()
+);
 
-
-update members set
- email='nono@naver.com',
- name='nono',
- password='1111'
-where member_no = 4;
-
-
-
-
-
-
-
-
-
-
-
+insert into commerces(commerce_no,title,price,name) 
+  values(1, '상의','20000','홍길동');
