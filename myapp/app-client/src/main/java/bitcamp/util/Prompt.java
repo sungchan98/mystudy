@@ -4,9 +4,10 @@ import java.io.InputStream;
 import java.sql.Date;
 import java.util.Scanner;
 
-public class Prompt {
+public class Prompt implements AutoCloseable {
 
   private Scanner keyIn;
+
 
   public Prompt(InputStream in) {
 
@@ -34,6 +35,7 @@ public class Prompt {
     return Date.valueOf(this.input(title, args));
   }
 
+  @Override
   public void close() {
     this.keyIn.close();
   }
