@@ -82,16 +82,3 @@ alter table boards
   add column category int not null;
 
 update boards set category=1;
-
-
-create table commerces(
-  commerce_no int primary key auto_increment,
-  category varchar(255) not null,
-  title varchar(255) not null,
-  price text not null,
-  name varchar(30) not null,
-  created_date datetime null default now()
-);
-
-insert into commerces(commerce_no,title,price,name) 
-  values(1, '상의','20000','홍길동');

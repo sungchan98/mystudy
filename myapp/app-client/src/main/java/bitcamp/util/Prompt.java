@@ -8,7 +8,6 @@ public class Prompt implements AutoCloseable {
 
   private Scanner keyIn;
 
-
   public Prompt(InputStream in) {
 
     keyIn = new Scanner(in);

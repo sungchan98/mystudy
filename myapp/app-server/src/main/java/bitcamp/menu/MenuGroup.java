@@ -4,35 +4,28 @@ import bitcamp.util.Prompt;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
-// Composite 패턴에서 '복합 객체(composite object)' 역할을 하는 클래스
-// - 다른 Menu 객체를 포함한다.
 public class MenuGroup extends AbstractMenu {
 
   private List<Menu> menus = new LinkedList<>();
 
-  private MenuGroup(String title, Stack<String> breadcrumb) {
-    super(title, breadcrumb);
+  private MenuGroup(String title) {
+    super(title);
   }
 
-  // GoF의 Factory Method 디자인패턴!
   public static MenuGroup getInstance(String title) {
-    return new MenuGroup(title, new Stack<String>());
+    return new MenuGroup(title);
   }
 
-  @Override // 인터페이스나 수퍼 클래스의 메서드를 정의하겠다고 컴파일러에게 알린다.
+  @Override
   public void execute(Prompt prompt) throws Exception {
 
-    // 메뉴를 실행할 때 메뉴의 제목을 breadcrumb 경로에 추가한다.
-    breadcrumb.push(this.title);
+    prompt.pushPath(this.title);
 
     this.printMenu(prompt);
 
     while (true) {
-      prompt.printf("%s>", this.getMenuPath());
-      prompt.end();
-      String input = prompt.input();
+      String input = prompt.input("%s>", prompt.getFullPath());
 
       if (input.equals("menu")) {
         this.printMenu(prompt);
@@ -56,8 +49,7 @@ public class MenuGroup extends AbstractMenu {
     }
 
     // 메뉴를 나갈 때 breadcrumb 메뉴 경로에서 메뉴 제목을 제거한다.
-    breadcrumb.pop();
-
+    prompt.popPath();
   }
 
   private void printMenu(Prompt prompt) {
@@ -78,13 +70,13 @@ public class MenuGroup extends AbstractMenu {
   }
 
   public MenuItem addItem(String title, MenuHandler handler) {
-    MenuItem menuItem = new MenuItem(title, this.breadcrumb, handler);
+    MenuItem menuItem = new MenuItem(title, handler);
     this.add(menuItem);
     return menuItem;
   }
 
   public MenuGroup addGroup(String title) {
-    MenuGroup menuGroup = new MenuGroup(title, this.breadcrumb);
+    MenuGroup menuGroup = new MenuGroup(title);
     this.add(menuGroup);
     return menuGroup;
   }
