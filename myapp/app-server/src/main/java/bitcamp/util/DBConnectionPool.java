@@ -43,23 +43,20 @@ public class DBConnectionPool {
       connectionThreadLocal.set(con);
 
     } else {
-      System.out.printf("%s: 기존에 보관했던 DB 커넥션 사용\n", Thread.currentThread().getName());
+      System.out.printf("%s: 스레드에 보관된 DB 커넥션 리턴\n", Thread.currentThread().getName());
     }
 
     return con;
   }
 
-  public void remove() {
-    // 현재 스레드에 보관중인 Connection 객체를 제거한다.
-    Connection con = connectionThreadLocal.get();
+  public void returnConnection(Connection con) {
+    //  스레드에 보관중인 Connection 객체를 제거한다.
+    connectionThreadLocal.remove();
 
-    if (con != null) {
-      try {
-        con.close();
-      } catch (Exception e) {
-      }
-      connectionThreadLocal.remove();
-      System.out.printf("%s: DB 커넥션 제거\n", Thread.currentThread().getName());
-    }
+    // Connection을 커넥션풀에 반환
+    connections.add(con);
+
+    System.out.printf("%s: DB 커넥션을 커넥션풀에 반환\n", Thread.currentThread().getName());
   }
 }
+
