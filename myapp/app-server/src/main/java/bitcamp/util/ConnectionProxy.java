@@ -30,6 +30,14 @@ public class ConnectionProxy implements Connection {
     this.connectionPool = connectionPool;
   }
 
+  public void realClose() {
+    try {
+      original.close();
+    } catch (Exception e) {
+      
+    }
+  }
+
 
   @Override
   public void close() throws SQLException {
