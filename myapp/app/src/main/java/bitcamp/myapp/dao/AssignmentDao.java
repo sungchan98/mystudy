@@ -14,7 +14,5 @@ public interface AssignmentDao {
   Assignment findBy(int no);
 
   int update(Assignment assignment);
+
 }
-
-
-
