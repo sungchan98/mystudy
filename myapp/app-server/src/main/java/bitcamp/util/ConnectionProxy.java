@@ -34,10 +34,8 @@ public class ConnectionProxy implements Connection {
     try {
       original.close();
     } catch (Exception e) {
-      
     }
   }
-
 
   @Override
   public void close() throws SQLException {

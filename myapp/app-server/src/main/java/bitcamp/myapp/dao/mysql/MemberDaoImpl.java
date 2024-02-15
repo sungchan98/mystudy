@@ -20,14 +20,14 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public void add(Member member) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "insert into members(email,name,password) values(?,?,sha2(?,256))")) {
       pstmt.setString(1, member.getEmail());
       pstmt.setString(2, member.getName());
       pstmt.setString(3, member.getPassword());
       pstmt.executeUpdate();
+
     } catch (Exception e) {
       throw new DaoException("데이터 입력 오류", e);
     }
@@ -35,8 +35,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int delete(int no) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "delete from members where member_no=?")) {
       pstmt.setInt(1, no);
@@ -49,8 +48,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public List<Member> findAll() {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select member_no, email, name, created_date from members");
         ResultSet rs = pstmt.executeQuery();) {
@@ -75,8 +73,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public Member findBy(int no) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select member_no, email, name, created_date from members where member_no=?")) {
       pstmt.setInt(1, no);
@@ -100,8 +97,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int update(Member member) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "update members set email=?, name=?, password=sha2(?,256) where member_no=?")) {
       pstmt.setString(1, member.getEmail());
@@ -115,9 +111,9 @@ public class MemberDaoImpl implements MemberDao {
     }
   }
 
-
+  @Override
   public Member findByEmailAndPassword(String email, String password) {
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select member_no, email, name, created_date from members where email=? and password=sha2(?,256)")) {
       pstmt.setString(1, email);

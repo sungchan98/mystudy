@@ -8,17 +8,14 @@ import java.util.Date;
 
 public class MemberAddHandler extends AbstractMenuHandler {
 
-
   private MemberDao memberDao;
 
   public MemberAddHandler(MemberDao memberDao) {
-
     this.memberDao = memberDao;
   }
 
   @Override
   protected void action(Prompt prompt) {
-
     try {
       Member member = new Member();
       member.setEmail(prompt.input("이메일? "));
@@ -27,9 +24,9 @@ public class MemberAddHandler extends AbstractMenuHandler {
       member.setCreatedDate(new Date());
 
       memberDao.add(member);
+
     } catch (Exception e) {
       prompt.println("등록 오류!");
-
     }
   }
 }

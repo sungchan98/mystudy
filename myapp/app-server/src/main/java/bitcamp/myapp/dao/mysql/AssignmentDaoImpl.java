@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class AssignmentDaoImpl implements AssignmentDao {
 
   DBConnectionPool connectionPool;
@@ -21,7 +20,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
 
   @Override
   public void add(Assignment assignment) {
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "insert into assignments(title,content,deadline) values(?,?,?)")) {
 
@@ -31,22 +30,20 @@ public class AssignmentDaoImpl implements AssignmentDao {
 
       pstmt.executeUpdate();
 
-
     } catch (Exception e) {
       throw new DaoException("데이터 입력 오류", e);
-
     }
   }
 
   @Override
   public int delete(int no) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "delete from assignments where assignment_no=?")) {
       pstmt.setInt(1, no);
 
       return pstmt.executeUpdate();
+
     } catch (Exception e) {
       throw new DaoException("데이터 삭제 오류", e);
     }
@@ -54,7 +51,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
 
   @Override
   public List<Assignment> findAll() {
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select assignment_no, title, deadline from assignments order by assignment_no desc");
         ResultSet rs = pstmt.executeQuery()) {
@@ -70,6 +67,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
         list.add(assignment);
       }
       return list;
+
     } catch (Exception e) {
       throw new DaoException("데이터 가져오기 오류", e);
     }
@@ -77,8 +75,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
 
   @Override
   public Assignment findBy(int no) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "select * from assignments where assignment_no=?")) {
 
@@ -104,8 +101,7 @@ public class AssignmentDaoImpl implements AssignmentDao {
 
   @Override
   public int update(Assignment assignment) {
-
-    try (Connection con = connectionPool.getConnection();// 현재 스레드에 보관된 Connection 객체를 꺼낸다. 없으면 만들어 준다.
+    try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
             "update assignments set title=?, content=?, deadline=? where assignment_no=?")) {
 

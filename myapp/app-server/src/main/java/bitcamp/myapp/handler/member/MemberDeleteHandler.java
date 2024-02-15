@@ -9,13 +9,11 @@ public class MemberDeleteHandler extends AbstractMenuHandler {
   private MemberDao memberDao;
 
   public MemberDeleteHandler(MemberDao memberDao) {
-
     this.memberDao = memberDao;
   }
 
   @Override
   protected void action(Prompt prompt) {
-
     try {
       int no = prompt.inputInt("번호? ");
       if (memberDao.delete(no) == -1) {

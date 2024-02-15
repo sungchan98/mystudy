@@ -5,10 +5,9 @@ import bitcamp.util.Prompt;
 
 public class LogoutHandler extends AbstractMenuHandler {
 
-
   @Override
   protected void action(Prompt prompt) {
     prompt.getSession().invalidate();
-    prompt.println("로그아웃했습니다.");
+    prompt.println("로그아웃 했습니다!");
   }
 }

@@ -65,9 +65,9 @@ public class ServerApp {
 
   void prepareDatabase() {
     try {
-      // Connection con = DriverManager.getConnection(
-      //   "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
-      //  "jdbc:mysql://db-ld28h-kr.vpc-pub-cdb.ntruss.com /studydb", "study", "Bitcamp!@#123");
+//      Connection con = DriverManager.getConnection(
+//
+      //"jdbc:mysql://db-ld28h-kr.vpc-pub-cdb.ntruss.com/studydb", "study", "Bitcamp!@#123");
 
       connectionPool = new DBConnectionPool(
           "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
@@ -130,7 +130,6 @@ public class ServerApp {
         Socket socket = serverSocket.accept();
         executorService.execute(() -> processRequest(socket));
       }
-
     } catch (Exception e) {
       System.out.println("서버 소켓 생성 오류!");
       e.printStackTrace();
@@ -161,8 +160,9 @@ public class ServerApp {
     } catch (Exception e) {
       System.out.println("클라이언 통신 오류!");
       e.printStackTrace();
+
     } finally {
-      //  threadConnection.remove();
+      //threadConnection.remove();
     }
   }
 

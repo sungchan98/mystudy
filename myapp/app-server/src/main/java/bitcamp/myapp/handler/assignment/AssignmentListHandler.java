@@ -27,8 +27,9 @@ public class AssignmentListHandler extends AbstractMenuHandler {
             assignment.getTitle(),
             assignment.getDeadline());
       }
+
     } catch (Exception e) {
-      prompt.println("삭제 오류!");
+      prompt.println("목록 오류!");
     }
   }
 }

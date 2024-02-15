@@ -15,8 +15,8 @@ public class Session {
     return attrMap.get(name);
   }
 
-  public void invalidate() { // 무효화하라
+  public void invalidate() {
     attrMap.clear();
-
   }
+
 }

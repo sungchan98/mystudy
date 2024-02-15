@@ -6,7 +6,6 @@ import bitcamp.util.Prompt;
 
 public class AssignmentDeleteHandler extends AbstractMenuHandler {
 
-
   private AssignmentDao assignmentDao;
 
   public AssignmentDeleteHandler(AssignmentDao assignmentDao) {
@@ -15,7 +14,6 @@ public class AssignmentDeleteHandler extends AbstractMenuHandler {
 
   @Override
   protected void action(Prompt prompt) {
-
     try {
       int no = prompt.inputInt("번호? ");
       if (assignmentDao.delete(no) == 0) {

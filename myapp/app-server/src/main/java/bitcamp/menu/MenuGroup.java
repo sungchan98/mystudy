@@ -27,7 +27,7 @@ public class MenuGroup extends AbstractMenu {
     this.printMenu(prompt);
 
     while (true) {
-      String input = prompt.input("%s%s>", getloginUsername(prompt), prompt.getFullPath());
+      String input = prompt.input("%s%s>", getLoginUsername(prompt), prompt.getFullPath());
 
       if (input.equals("menu")) {
         this.printMenu(prompt);
@@ -54,11 +54,12 @@ public class MenuGroup extends AbstractMenu {
     prompt.popPath();
   }
 
-  private String getloginUsername(Prompt prompt) {
+  private String getLoginUsername(Prompt prompt) {
+//    Member loginUser = prompt.getLoginUser();
+//    Member loginUser = (Member) prompt.getAttribute("loginUser");
     Member loginUser = (Member) prompt.getSession().getAttribute("loginUser");
     if (loginUser != null) {
-      return AnsiEscape.ANSI_BOLD_RED +
-          loginUser.getName() + ":" + AnsiEscape.ANSI_CLEAR;
+      return AnsiEscape.ANSI_BOLD_RED + loginUser.getName() + ":" + AnsiEscape.ANSI_CLEAR;
     } else {
       return "";
     }
@@ -96,6 +97,4 @@ public class MenuGroup extends AbstractMenu {
   public void remove(Menu menu) {
     this.menus.remove(menu);
   }
-
-
 }

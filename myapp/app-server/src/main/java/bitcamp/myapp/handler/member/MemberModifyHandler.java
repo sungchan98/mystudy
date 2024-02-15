@@ -7,17 +7,14 @@ import bitcamp.util.Prompt;
 
 public class MemberModifyHandler extends AbstractMenuHandler {
 
-
   private MemberDao memberDao;
 
   public MemberModifyHandler(MemberDao memberDao) {
-
     this.memberDao = memberDao;
   }
 
   @Override
   protected void action(Prompt prompt) {
-
     try {
       int no = prompt.inputInt("번호? ");
 
@@ -36,6 +33,7 @@ public class MemberModifyHandler extends AbstractMenuHandler {
 
       memberDao.update(member);
       prompt.println("회원을 변경했습니다.");
+
     } catch (Exception e) {
       prompt.println("변경 오류!");
     }

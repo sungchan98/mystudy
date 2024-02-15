@@ -19,7 +19,6 @@ public class AssignmentAddHandler extends AbstractMenuHandler {
 
   @Override
   protected void action(Prompt prompt) {
-
     try {
       Assignment assignment = new Assignment();
       assignment.setTitle(prompt.input("과제명? "));
@@ -32,7 +31,6 @@ public class AssignmentAddHandler extends AbstractMenuHandler {
       assignmentDao.add(assignment);
 
       txManager.rollback();
-
 
     } catch (Exception e) {
       prompt.println("과제 입력 중 오류 발생!");

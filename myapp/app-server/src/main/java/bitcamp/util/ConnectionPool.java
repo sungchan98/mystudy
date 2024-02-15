@@ -7,6 +7,4 @@ public interface ConnectionPool {
   Connection getConnection() throws Exception;
 
   void returnConnection(Connection con);
-
 }
-

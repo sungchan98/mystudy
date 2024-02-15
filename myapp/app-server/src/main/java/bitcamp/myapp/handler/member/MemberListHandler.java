@@ -8,18 +8,15 @@ import java.util.List;
 
 public class MemberListHandler extends AbstractMenuHandler {
 
-
   private MemberDao memberDao;
 
   public MemberListHandler(MemberDao memberDao) {
-
     this.memberDao = memberDao;
   }
 
   @Override
   protected void action(Prompt prompt) {
     try {
-
       prompt.printf("%-4s\t%-10s\t%30s\t%s\n", "번호", "이름", "이메일", "가입일");
 
       List<Member> list = memberDao.findAll();
