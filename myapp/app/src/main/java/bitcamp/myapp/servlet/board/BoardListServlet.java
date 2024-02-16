@@ -22,6 +22,8 @@ public class BoardListServlet extends GenericServlet {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
     this.boardDao = new BoardDaoImpl(connectionPool, 1);
+
+
   }
 
   @Override
@@ -40,7 +42,7 @@ public class BoardListServlet extends GenericServlet {
     out.println("<body>");
     out.println("<h1>게시글</h1>");
 
-    out.println("<a href=''>새 글</a>");
+    out.println("<a href='/board/form.html'>새 글</a>");
 
     try {
       out.println("<table border='1'>");
