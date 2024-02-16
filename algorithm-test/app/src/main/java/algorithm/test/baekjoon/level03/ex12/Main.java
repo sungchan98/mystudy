@@ -9,9 +9,13 @@ public class Main {
 
     while (true) {
       int A = sc.nextInt();
+      if (!(A > 0)) {
+        break;
+      }
       int B = sc.nextInt();
-
-
+      if (!(B > 0)) {
+        break;
+      }
       System.out.println(A + B);
     }
   }

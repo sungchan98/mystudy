@@ -18,14 +18,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/board/add")
-public class BoardAddServlet extends HttpServlet {
+@WebServlet("/board/update")
+public class BoardUpdateServlet extends HttpServlet {
 
   private TransactionManager txManager;
   private BoardDao boardDao;
   private AttachedFileDao attachedFileDao;
 
-  public BoardAddServlet() {
+  public BoardUpdateServlet() {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
     txManager = new TransactionManager(connectionPool);
@@ -58,22 +58,31 @@ public class BoardAddServlet extends HttpServlet {
       return;
     }
 
-    Board board = new Board();
-    board.setTitle(request.getParameter("title"));
-    board.setContent(request.getParameter("content"));
-    board.setWriter(loginUser);
+    try {
+      int no = Integer.parseInt(request.getParameter("no"));
 
-    ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
-
-    String[] files = request.getParameterValues("files");
-    if (files != null) {
-      for (String file : files) {
-        if (file.length() == 0) {
-          continue;
-        }
-        attachedFiles.add(new AttachedFile().filePath(file));
+      Board board = boardDao.findBy(no);
+      if (board == null) {
+        out.println("게시글 번호가 유효하지 않습니다.");
+        out.println("</body>");
+        out.println("</html>");
+        return;
       }
-    }
+
+      board.setTitle(request.getParameter("title"));
+      board.setContent(request.getParameter("content"));
+
+      ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
+
+      String[] files = request.getParameterValues("files");
+      if (files != null) {
+        for (String file : files) {
+          if (file.length() == 0) {
+            continue;
+          }
+          attachedFiles.add(new AttachedFile().filePath(file));
+        }
+      }
 //    while (true) {
 //      String filepath = prompt.input("파일?(종료: 그냥 엔터) ");
 //      if (filepath.length() == 0) {
@@ -82,10 +91,9 @@ public class BoardAddServlet extends HttpServlet {
 //      files.add(new AttachedFile().filePath(filepath));
 //    }
 
-    try {
       txManager.startTransaction();
 
-      boardDao.add(board);
+      boardDao.update(board);
 
       if (attachedFiles.size() > 0) {
         // 첨부파일 객체에 게시글 번호 저장
@@ -97,7 +105,7 @@ public class BoardAddServlet extends HttpServlet {
 
       txManager.commit();
 
-      out.println("<p>게시글을 등록했습니다.</p>");
+      out.println("<p>게시글을 변경했습니다.</p>");
 
     } catch (Exception e) {
       try {
