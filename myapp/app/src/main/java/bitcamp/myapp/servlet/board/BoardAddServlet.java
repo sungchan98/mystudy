@@ -31,7 +31,6 @@ public class BoardAddServlet extends HttpServlet {
     txManager = new TransactionManager(connectionPool);
     this.boardDao = new BoardDaoImpl(connectionPool, 1);
     this.attachedFileDao = new AttachedFileDaoImpl(connectionPool);
-
   }
 
   @Override
@@ -64,7 +63,6 @@ public class BoardAddServlet extends HttpServlet {
     board.setWriter(loginUser);
 
     ArrayList<AttachedFile> attachedFiles = new ArrayList<>();
-
     String[] files = request.getParameterValues("files");
     if (files != null) {
       for (String file : files) {
@@ -74,13 +72,6 @@ public class BoardAddServlet extends HttpServlet {
         attachedFiles.add(new AttachedFile().filePath(file));
       }
     }
-//    while (true) {
-//      String filepath = prompt.input("파일?(종료: 그냥 엔터) ");
-//      if (filepath.length() == 0) {
-//        break;
-//      }
-//      files.add(new AttachedFile().filePath(filepath));
-//    }
 
     try {
       txManager.startTransaction();
@@ -88,7 +79,6 @@ public class BoardAddServlet extends HttpServlet {
       boardDao.add(board);
 
       if (attachedFiles.size() > 0) {
-        // 첨부파일 객체에 게시글 번호 저장
         for (AttachedFile attachedFile : attachedFiles) {
           attachedFile.setBoardNo(board.getNo());
         }
@@ -109,6 +99,7 @@ public class BoardAddServlet extends HttpServlet {
       e.printStackTrace(out);
       out.println("</pre>");
     }
+
     out.println("</body>");
     out.println("</html>");
   }

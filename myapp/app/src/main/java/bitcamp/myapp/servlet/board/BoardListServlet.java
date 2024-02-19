@@ -22,8 +22,6 @@ public class BoardListServlet extends GenericServlet {
     DBConnectionPool connectionPool = new DBConnectionPool(
         "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
     this.boardDao = new BoardDaoImpl(connectionPool, 1);
-
-
   }
 
   @Override

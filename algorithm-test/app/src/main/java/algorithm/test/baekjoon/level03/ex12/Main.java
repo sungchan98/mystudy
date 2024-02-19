@@ -16,6 +16,10 @@ public class Main {
       if (!(B > 0)) {
         break;
       }
+      String str = sc.next();
+      if (str.equalsIgnoreCase("exit")) {
+        break;
+      }
       System.out.println(A + B);
     }
   }
