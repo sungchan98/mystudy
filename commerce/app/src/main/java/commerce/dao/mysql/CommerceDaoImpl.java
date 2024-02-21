@@ -2,6 +2,7 @@ package commerce.dao.mysql;
 
 import commerce.dao.CommerceDao;
 import commerce.dao.DaoException;
+import commerce.util.DBConnectionPool;
 import commerce.vo.Commerce;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,15 +14,17 @@ import java.util.List;
 public class CommerceDaoImpl implements CommerceDao {
 
 
-  Connection con;
+  DBConnectionPool connectionPool;
 
-  public CommerceDaoImpl(Connection con) {
-    this.con = con;
+  public CommerceDaoImpl(DBConnectionPool connectionPool) {
+    this.connectionPool = connectionPool;
   }
 
   @Override
   public void add(Commerce commerce) {
-    try(PreparedStatement pstmt = con.prepareStatement("insert into commerces(category,title,price,name) values(?,?,?,?)")) {
+    try(Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(
+            "insert into commerces(category,title,price,name) values(?,?,?,?)")) {
 
       pstmt.setString(1,commerce.getCategory());
       pstmt.setString(2,commerce.getTitle());
@@ -37,7 +40,8 @@ public class CommerceDaoImpl implements CommerceDao {
 
   @Override
   public int delete(int no) {
-    try( PreparedStatement pstmt = con.prepareStatement(
+    try(Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(
         "delete from commerces where commerce_no=?")) {
 
       pstmt.setInt(1,no);
@@ -51,7 +55,8 @@ public class CommerceDaoImpl implements CommerceDao {
 
   @Override
   public List<Commerce> findAll() {
-    try (PreparedStatement pstmt = con.prepareStatement(
+    try (Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(
         "select commerce_no, title, price, name, created_date from commerces");
         ResultSet rs = pstmt.executeQuery()){
 
@@ -76,7 +81,8 @@ public class CommerceDaoImpl implements CommerceDao {
 
   @Override
   public Commerce findBy(int no) {
-    try (PreparedStatement pstmt = con.prepareStatement(
+    try (Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(
         "select commerce_no, category, title, price, name, created_date from commerces where commerce_no=?")){
 
       pstmt.setInt(1,no);
@@ -102,7 +108,8 @@ public class CommerceDaoImpl implements CommerceDao {
 
   @Override
   public int update(Commerce commerce) {
-    try (PreparedStatement pstmt = con.prepareStatement(
+    try (Connection con = connectionPool.getConnection();
+        PreparedStatement pstmt = con.prepareStatement(
         "update commerces set category=? , title=?, price=?, name=? where commerce_no=?")) {
 
       pstmt.setString(1,commerce.getCategory());
