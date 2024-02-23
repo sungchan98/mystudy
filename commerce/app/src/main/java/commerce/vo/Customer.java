@@ -7,17 +7,19 @@ public class Customer implements Serializable {
 
   private static final long serialVersionUID = 100L;
 
-  private int no;
-  private String id;
+  private int customers_no;
   private String name;
-  private String password;
-  private Date createdDate;
+  private String gender;
+  private int age;
+  private String address;
+  private String email;
 
+  private String phone_no;
   @Override
   public String toString() {
     return "Customer{" +
-        "no=" + no +
-        ", id='" + id + '\'' +
+        "customers-no=" + customers_no +
+        ", name='" + id + '\'' +
         ", name='" + name + '\'' +
         ", password='" + password + '\'' +
         ", createdDate=" + createdDate +

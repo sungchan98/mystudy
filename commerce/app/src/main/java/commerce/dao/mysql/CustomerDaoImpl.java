@@ -129,7 +129,7 @@ public class CustomerDaoImpl implements CustomerDao {
         if (rs.next()) {
           Customer customer = new Customer();
           customer.setNo(rs.getInt("customer_no"));
-          customer.setId(rs.getString("idm "));
+          customer.setId(rs.getString("id"));
           customer.setName(rs.getString("name"));
           customer.setCreatedDate(rs.getDate("created_date"));
           return customer;
