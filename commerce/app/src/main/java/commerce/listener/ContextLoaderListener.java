@@ -2,12 +2,10 @@ package commerce.listener;
 
 
 
-import commerce.dao.CommerceDao;
 import commerce.dao.CustomerDao;
 
 import commerce.dao.mysql.AttachedFileDaoImpl;
 
-import commerce.dao.mysql.CommerceDaoImpl;
 import commerce.dao.mysql.CustomerDaoImpl;
 import commerce.util.DBConnectionPool;
 import commerce.util.TransactionManager;

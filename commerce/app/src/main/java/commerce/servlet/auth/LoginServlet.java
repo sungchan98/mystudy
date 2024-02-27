@@ -4,8 +4,10 @@ import commerce.dao.CustomerDao;
 import commerce.vo.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Member;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,19 +15,27 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/auth/login")
 public class LoginServlet extends HttpServlet {
 
-  CustomerDao memberDao;
+  CustomerDao customerDao;
 
   @Override
   public void init() {
-    this.memberDao = (CustomerDao) this.getServletContext().getAttribute("memberDao");
+    this.customerDao = (CustomerDao) this.getServletContext().getAttribute("customerDao");
   }
 
   @Override
-  protected void service(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    String id = request.getParameter("id");
-    String password = request.getParameter("password");
+    String email = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+      for (Cookie cookie : cookies) {
+        if (cookie.getName().equals("email")) {
+          email = cookie.getValue();
+          break;
+        }
+      }
+    }
 
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
@@ -34,28 +44,86 @@ public class LoginServlet extends HttpServlet {
     out.println("<html lang='en'>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>쇼핑몰</title>");
+    out.println("  <title>비트캠프 데브옵스 5기</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>상품 관리 시스템</h1>");
-    out.println("<h2>로그인</h2>");
 
-    try {
-      Customer customer = memberDao.findByIdAndPassword(id, password);
-      if (customer != null) {
-        request.getSession().setAttribute("loginUser", customer);
-        out.printf("<p>%s 님 환영합니다.</p>\n", customer.getName());
-      } else {
-        out.println("<p>아이디 또는 암호가 맞지 않습니다.</p>");
-      }
-    } catch (Exception e) {
-      out.println("<p>로그인 오류!</p>");
-      out.println("<pre>");
-      e.printStackTrace(out);
-      out.println("</pre>");
-    }
+    request.getRequestDispatcher("/header").include(request, response);
+
+    out.println("<h1>로그인</h1>");
+
+    out.println("<form action='/auth/login' method='post'>");
+    out.println("<div>");
+    out.printf("    이메일: <input name='email' type='text' value='%s'>\n", email);
+    out.println("</div>");
+    out.println("<div>");
+    out.println("      암호: <input name='password' type='password'>");
+    out.println("</div>");
+    out.println("<button>로그인</button>");
+    out.println("<input type='checkbox' name='saveEmail'> 이메일 저장");
+    out.println("</form>");
+
+    request.getRequestDispatcher("/footer").include(request, response);
 
     out.println("</body>");
     out.println("</html>");
   }
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+
+    try {
+      String email = request.getParameter("email");
+      String password = request.getParameter("password");
+
+      String saveEmail = request.getParameter("saveEmail");
+      if (saveEmail != null) {
+        Cookie cookie = new Cookie("email", email);
+        cookie.setMaxAge(60 * 60 * 24 * 7);
+        response.addCookie(cookie);
+      } else {
+        Cookie cookie = new Cookie("email", "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+      }
+
+      Customer customer = customerDao.findByEmailAndPassword(email, password);
+
+      response.setContentType("text/html;charset=UTF-8");
+      PrintWriter out = response.getWriter();
+
+      out.println("<!DOCTYPE html>");
+      out.println("<html lang='en'>");
+      out.println("<head>");
+      out.println("  <meta charset='UTF-8'>");
+      out.println("  <title>비트캠프 데브옵스 5기</title>");
+      out.println("</head>");
+      out.println("<body>");
+
+      request.getRequestDispatcher("/header").include(request, response);
+
+      out.println("<h1>로그인</h1>");
+
+      if (customer != null) {
+        request.getSession().setAttribute("loginUser", customer);
+        out.printf("<p>%s 님 환영합니다.</p>\n", customer.getName());
+        response.setHeader("Refresh", "1;url=/index.html");
+
+      } else {
+        out.println("<p>이메일 또는 암호가 맞지 않습니다.</p>");
+        response.setHeader("Refresh", "1;url=/auth/login");
+      }
+      request.getRequestDispatcher("/footer").include(request, response);
+
+      out.println("</body>");
+      out.println("</html>");
+
+    } catch (Exception e) {
+      request.setAttribute("message", "로그인 오류!");
+      request.setAttribute("exception", e);
+      request.getRequestDispatcher("/error").forward(request, response);
+    }
+  }
 }
+

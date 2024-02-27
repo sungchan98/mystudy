@@ -22,10 +22,10 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   public void add(AttachedFile file) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "insert into commerce_files(file_path,commerce_no) values(?,?)")) {
+            "insert into product_files(file_path,product_no) values(?,?)")) {
 
       pstmt.setString(1, file.getFilePath());
-      pstmt.setInt(2, file.getCommerceNo());
+      pstmt.setInt(2, file.getProductNo());
 
       pstmt.executeUpdate();
 
@@ -38,11 +38,11 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   public int addAll(List<AttachedFile> files) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "insert into commerce_files(file_path,commerce_no) values(?,?)")) {
+            "insert into product_files(file_path,product_no) values(?,?)")) {
 
       for (AttachedFile file : files) {
         pstmt.setString(1, file.getFilePath());
-        pstmt.setInt(2, file.getCommerceNo());
+        pstmt.setInt(2, file.getProductNo());
         pstmt.executeUpdate();
       }
 
@@ -57,7 +57,7 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   public int delete(int no) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "delete from commerce_files where file_no=?")) {
+            "delete from product_files where file_no=?")) {
       pstmt.setInt(1, no);
       return pstmt.executeUpdate();
 
@@ -67,11 +67,11 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   }
 
   @Override
-  public int deleteAll(int commerceNo) {
+  public int deleteAll(int productNo) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "delete from commerce_files where commerce_no=?")) {
-      pstmt.setInt(1, commerceNo);
+            "delete from product_files where product_no=?")) {
+      pstmt.setInt(1, productNo);
       return pstmt.executeUpdate();
 
     } catch (Exception e) {
@@ -80,13 +80,13 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   }
 
   @Override
-  public List<AttachedFile> findAllByCommerceNo(int commerceNo) {
+  public List<AttachedFile> findAllByProductNo(int productNo) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select file_no, file_path, commerce_no"
-                + " from commerce_files where commerce_no=? order by file_no asc")) {
+            "select file_no, file_path, product_no"
+                + " from product_files where product_no=? order by file_no asc")) {
 
-      pstmt.setInt(1, commerceNo);
+      pstmt.setInt(1, productNo);
 
       try (ResultSet rs = pstmt.executeQuery()) {
 
@@ -96,7 +96,7 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
           AttachedFile file = new AttachedFile();
           file.setNo(rs.getInt("file_no"));
           file.setFilePath(rs.getString("file_path"));
-          file.setCommerceNo(rs.getInt("commerce_no"));
+          file.setProductNo(rs.getInt("product_no"));
 
           list.add(file);
         }
@@ -112,15 +112,15 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   public AttachedFile findByNo(int no) {
     try (Connection con = connectionPool.getConnection();
         PreparedStatement pstmt = con.prepareStatement(
-            "select file_no, file_path, commerce_no"
-                + " from commerce_files where file_no=?")) {
+            "select file_no, file_path, product_no"
+                + " from product_files where file_no=?")) {
       pstmt.setInt(1, no);
       try (ResultSet rs = pstmt.executeQuery()) {
         if (rs.next()) {
           AttachedFile file = new AttachedFile();
           file.setNo(rs.getInt("file_no"));
           file.setFilePath(rs.getString("file_path"));
-          file.setCommerceNo(rs.getInt("commerce_no"));
+          file.setProductNo(rs.getInt("product_no"));
           return file;
         }
         return null;

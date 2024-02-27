@@ -7,39 +7,44 @@ public class Customer implements Serializable {
 
   private static final long serialVersionUID = 100L;
 
-  private int customers_no;
-  private String name;
-  private String gender;
-  private int age;
-  private String address;
+  private int customerNo;
   private String email;
+  private String name;
+  private String password;
+  private String gender;
+  private String address;
 
-  private String phone_no;
+  private String phoneNo;
+private Date createdDate;
+
   @Override
   public String toString() {
     return "Customer{" +
-        "customers-no=" + customers_no +
-        ", name='" + id + '\'' +
+        "customerNo=" + customerNo +
+        ", email='" + email + '\'' +
         ", name='" + name + '\'' +
         ", password='" + password + '\'' +
+        ", gender='" + gender + '\'' +
+        ", address='" + address + '\'' +
+        ", phoneNo='" + phoneNo + '\'' +
         ", createdDate=" + createdDate +
         '}';
   }
 
-  public int getNo() {
-    return no;
+  public int getCustomerNo() {
+    return customerNo;
   }
 
-  public void setNo(int no) {
-    this.no = no;
+  public void setCustomerNo(int customerNo) {
+    this.customerNo = customerNo;
   }
 
-  public String getId() {
-    return id;
+  public String getEmail() {
+    return email;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String getName() {
@@ -56,6 +61,30 @@ public class Customer implements Serializable {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getPhoneNo() {
+    return phoneNo;
+  }
+
+  public void setPhoneNo(String phoneNo) {
+    this.phoneNo = phoneNo;
   }
 
   public Date getCreatedDate() {

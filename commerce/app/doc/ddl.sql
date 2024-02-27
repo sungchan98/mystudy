@@ -2,7 +2,7 @@
 -- 상품
 create table products(
   product_no int not null,
-  category_no varchar(255) not null,
+  category_name varchar(255) not null,
   product_name varchar(255) not null,
   product_price int not null,
   product_quantity int not null,
@@ -16,11 +16,11 @@ alter table products
 -- 고객
 create table customers(
   customer_no int not null,
+  email varchar(50) not null,
   name varchar(50) not null,
   gender varchar(50) not null,
   address varchar(50) not null,
-  email varchar(50) not null,
-  phone_no int not null
+  phone_no varchar(50) not null
 );
 
 alter table customers
@@ -48,21 +48,13 @@ create table orders(
 ----------------------------------------------------------------------------------------
 
 
-alter table commerces
-  add constraint commerces_fk
-  foreign key (customer_no) references customers(customer_no);
-
-
-
-
-
-create table commerce_files(
+create table product_files(
   file_no int not null,
   file_path varchar(255) not null,
-  commerce_no int not null
+  product_no int not null
 );
 
-alter table commerce_files
+alter table product_files
   add constraint primary key (file_no),
   modify column file_no int not null auto_increment,
-  add constraint commerce_files_fk foreign key (commerce_no) references commerces(commerce_no);
+  add constraint commerce_files_fk foreign key (product_no) references commerces(product_no);

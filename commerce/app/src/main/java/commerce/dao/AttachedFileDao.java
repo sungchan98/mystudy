@@ -11,9 +11,9 @@ public interface AttachedFileDao {
 
   int delete(int no);
 
-  int deleteAll(int commerceNo);
+  int deleteAll(int productNo);
 
-  List<AttachedFile> findAllByCommerceNo(int commerceNo);
+  List<AttachedFile> findAllByProductNo(int productNo);
 
   AttachedFile findByNo(int no);
 }

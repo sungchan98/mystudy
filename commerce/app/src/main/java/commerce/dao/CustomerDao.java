@@ -15,5 +15,5 @@ public interface CustomerDao {
 
   public int update(Customer customer);
 
-  public Customer findByIdAndPassword(String id, String password);
+  public Customer findByEmailAndPassword(String id, String password);
 }

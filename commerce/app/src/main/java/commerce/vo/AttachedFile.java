@@ -4,7 +4,7 @@ public class AttachedFile {
 
   private int no;
   private String filePath;
-  private int commerceNo;
+  private int productNo;
 
   public int getNo() {
     return no;
@@ -22,12 +22,12 @@ public class AttachedFile {
     this.filePath = filePath;
   }
 
-  public int getCommerceNo() {
-    return commerceNo;
+  public int getProductNo() {
+    return productNo;
   }
 
-  public void setCommerceNo(int commerceNo) {
-    this.commerceNo = commerceNo;
+  public void setProductNo(int productNo) {
+    this.productNo = productNo;
   }
 
   public AttachedFile filePath(String filePath) {
@@ -35,8 +35,8 @@ public class AttachedFile {
     return this;
   }
 
-  public AttachedFile commerceNo(int commerceNo) {
-    this.commerceNo = commerceNo;
+  public AttachedFile productNo(int productNo) {
+    this.productNo = productNo;
     return this;
   }
 }
