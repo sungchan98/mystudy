@@ -6,18 +6,26 @@ public class Main {
   public static void main(String[] args) {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
+    int start = sc.nextInt();
+    int end = sc.nextInt();
+    int cnt = 0;
 
-    for (int i = 1; i <= n; i++) {
-      for (int j = n; j >= i; j--) {
+    for (int i = start; i < end; i++) {
 
-        System.out.printf("%d * %d = %d ", i, n - j + 1, i * (n - j + 1));
-        if (j != i) {
-          System.out.print("/ ");
+      int sum = 0;
+      for (int j = 1; j <= i / 2; j++) {
+
+        if (i % j == 0) {
+          sum += j;
+          if (i == sum) {
+            System.out.print(sum + " ");
+            cnt++;
+
+          }
+          // System.out.print(j + " ");
         }
-
       }
-      System.out.println();
     }
+    System.out.println(cnt);
   }
 }
