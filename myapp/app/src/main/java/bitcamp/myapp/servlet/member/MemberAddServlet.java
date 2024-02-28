@@ -54,9 +54,9 @@ public class MemberAddServlet extends HttpServlet {
       response.sendRedirect("list");
 
     } catch (Exception e) {
-      request.setAttribute("message", "등록 오류!");
+      request.setAttribute("message", "회원 등록 오류!");
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error").forward(request, response);
+      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }
