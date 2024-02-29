@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<%@ page import="java.io.PrintWriter"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -18,16 +17,9 @@
       <p>${message}</p>
     </c:if>
 
-    Throwable exception = (Throwable) request.getAttribute("exception");
-    if (exception != null) {%>
-     <pre>
-<%
-      out.flush();
-      exception.printStackTrace(new PrintWriter(out));
-%>
-      </pre>
-<%    }%>
-
+    <c:if test="${not empty detail}">
+       <p>${detail}</p>
+    </c:if>
 
 <jsp:include page="/footer.jsp"></jsp:include>
 
