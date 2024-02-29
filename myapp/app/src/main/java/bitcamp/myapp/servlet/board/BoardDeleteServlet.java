@@ -25,11 +25,11 @@ public class BoardDeleteServlet extends HttpServlet {
 
   @Override
   public void init() {
-    txManager = (TransactionManager) this.getServletContext().getAttribute("txManager");
+    this.txManager = (TransactionManager) this.getServletContext().getAttribute("txManager");
     this.boardDao = (BoardDao) this.getServletContext().getAttribute("boardDao");
     this.attachedFileDao = (AttachedFileDao) this.getServletContext()
         .getAttribute("attachedFileDao");
-    uploadDir = this.getServletContext().getRealPath("/upload/board");
+    this.uploadDir = this.getServletContext().getRealPath("/upload/board");
   }
 
   @Override
@@ -54,6 +54,7 @@ public class BoardDeleteServlet extends HttpServlet {
       } else if (board.getWriter().getNo() != loginUser.getNo()) {
         throw new Exception("권한이 없습니다.");
       }
+
       List<AttachedFile> files = attachedFileDao.findAllByBoardNo(no);
 
       txManager.startTransaction();
@@ -65,16 +66,14 @@ public class BoardDeleteServlet extends HttpServlet {
         new File(this.uploadDir + "/" + file.getFilePath()).delete();
       }
 
-      response.sendRedirect("/board/list?category=" + category);
+      request.setAttribute("viewUrl", "redirect:list?category=" + category);
 
     } catch (Exception e) {
       try {
         txManager.rollback();
       } catch (Exception e2) {
       }
-      request.setAttribute("message", String.format("%s 삭제 오류!", boardName));
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
   }
 }

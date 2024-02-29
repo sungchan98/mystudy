@@ -28,6 +28,7 @@ public class MemberAddServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+
     request.setAttribute("viewUrl", "/member/form.jsp");
 
   }
@@ -37,7 +38,6 @@ public class MemberAddServlet extends HttpServlet {
       throws ServletException, IOException {
 
     try {
-
       Member member = new Member();
       member.setEmail(request.getParameter("email"));
       member.setName(request.getParameter("name"));

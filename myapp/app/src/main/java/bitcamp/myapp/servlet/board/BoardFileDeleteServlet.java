@@ -7,13 +7,11 @@ import bitcamp.myapp.vo.Member;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@MultipartConfig(maxFileSize = 1024 * 1024 * 10)
 @WebServlet("/board/file/delete")
 public class BoardFileDeleteServlet extends HttpServlet {
 
@@ -58,12 +56,13 @@ public class BoardFileDeleteServlet extends HttpServlet {
       attachedFileDao.delete(fileNo);
       new File(this.uploadDir + "/" + file.getFilePath()).delete();
 
-      response.sendRedirect(request.getHeader("Referer"));
+      request.setAttribute("viewUrl",
+          "redirect:../view?category=" + category + "&no" + file.getBoardNo());
 
     } catch (Exception e) {
-      request.setAttribute("message", String.format("%s 첨부파일 삭제 오류!", boardName));
+
       request.setAttribute("exception", e);
-      request.getRequestDispatcher("/error.jsp").forward(request, response);
+
     }
   }
 }
