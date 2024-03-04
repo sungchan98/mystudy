@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/ex04/s2")
-public class  Servlet02 extends GenericServlet {
+public class Servlet02 extends GenericServlet {
 
   private static final long serialVersionUID = 1L;
 

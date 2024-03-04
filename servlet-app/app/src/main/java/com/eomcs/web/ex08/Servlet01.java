@@ -53,7 +53,6 @@ public class Servlet01 extends HttpServlet {
     //    소용이 없다.
     //
 
-
     // 다음은 일부러 버퍼를 채우는 코드이다.
     // 버퍼가 꽉차면 자동으로 출력하는 것을 확인해보자!
     for (int i = 0; i < 200; i++) {

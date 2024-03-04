@@ -112,7 +112,7 @@ public class Servlet04 extends GenericServlet {
           // 업로드 파일을 저장할 때 사용할 파일명을 준비한다.
           // => 원래의 파일명을 사용하지 않는다.
           // => 다른 클라이언트가 같은 이름의 파일을 업로드 하면 기존 파일을 덮어쓸 수 있기 때문이다.
-          String filename = UUID.randomUUID().toString(); // UUID:유니크 아이디
+          String filename = UUID.randomUUID().toString();
 
           // 전체 파일 경로를 준비한다.
           // => /java-web/upload/파일명

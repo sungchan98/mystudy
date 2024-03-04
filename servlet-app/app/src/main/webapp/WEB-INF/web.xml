@@ -30,7 +30,8 @@
     <param-name>jdbc.password</param-name>
     <param-value>1111</param-value>
   </context-param>
-<!--
+
+  <!--
   <servlet>
     <servlet-name>Servlet03</servlet-name>
     <servlet-class>com.eomcs.web.ex06.Servlet03</servlet-class>
@@ -57,8 +58,8 @@
     <servlet-name>Servlet03</servlet-name>
     <url-pattern>/ex06/s3</url-pattern>
   </servlet-mapping>
--->
-
+  -->
+<!--
   <servlet>
     <servlet-name>ex12.Servlet01</servlet-name>
     <servlet-class>com.eomcs.web.ex12.Servlet01</servlet-class>
@@ -67,4 +68,5 @@
     <servlet-name>ex12.Servlet01</servlet-name>
     <url-pattern>/ex12/s01</url-pattern>
   </servlet-mapping>
+-->
 </web-app>

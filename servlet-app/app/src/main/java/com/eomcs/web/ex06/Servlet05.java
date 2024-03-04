@@ -7,17 +7,17 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-
-//@WebServlet(value = "/ex06/s5, loadOnStartup=1")
+//@WebServlet(value = "/ex06/s5", loadOnStartup = 1)
 @SuppressWarnings("serial")
 public class Servlet05 extends HttpServlet {
+
+
 
   @Override
   public void init() throws ServletException {
     System.out.println("/ex06/s5 ==> init()");
 
     ServletContext config = this.getServletContext();
-
 
     String jdbcDriver = config.getInitParameter("jdbc.driver");
     String jdbcUrl = config.getInitParameter("jdbc.url");
