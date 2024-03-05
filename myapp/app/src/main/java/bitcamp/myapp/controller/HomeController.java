@@ -4,9 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class HomeController implements PageController {
+public class HomeController {
 
-
+  @RequestMapping("/home")
   public String execute(HttpServletRequest request, HttpServletResponse response)
       throws Exception {
 

@@ -1,25 +1,11 @@
 package bitcamp.myapp.servlet;
 
+import bitcamp.myapp.controller.AssignmentController;
+import bitcamp.myapp.controller.AuthController;
+import bitcamp.myapp.controller.BoardController;
 import bitcamp.myapp.controller.HomeController;
-import bitcamp.myapp.controller.PageController;
-import bitcamp.myapp.controller.assignment.AssignmentAddController;
-import bitcamp.myapp.controller.assignmnet.AssignmentDeleteController;
-import bitcamp.myapp.controller.assignmnet.AssignmentListController;
-import bitcamp.myapp.controller.assignmnet.AssignmentUpdateController;
-import bitcamp.myapp.controller.assignmnet.AssignmentViewController;
-import bitcamp.myapp.controller.auth.LoginController;
-import bitcamp.myapp.controller.auth.LogoutController;
-import bitcamp.myapp.controller.board.BoardAddController;
-import bitcamp.myapp.controller.board.BoardDeleteController;
-import bitcamp.myapp.controller.board.BoardFileDeleteController;
-import bitcamp.myapp.controller.board.BoardListController;
-import bitcamp.myapp.controller.board.BoardUpdateController;
-import bitcamp.myapp.controller.board.BoardViewController;
-import bitcamp.myapp.controller.member.MemberAddController;
-import bitcamp.myapp.controller.member.MemberDeleteServlet;
-import bitcamp.myapp.controller.member.MemberListController;
-import bitcamp.myapp.controller.member.MemberUpdateController;
-import bitcamp.myapp.controller.member.MemberViewController;
+import bitcamp.myapp.controller.MemberController;
+import bitcamp.myapp.controller.RequestMapping;
 import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
@@ -28,8 +14,9 @@ import bitcamp.util.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -42,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/app/*")
 public class DispatcherServlet extends HttpServlet {
 
-  private Map<String, PageController> controllerMap = new HashMap<>();
+  private List<Object> controllers = new ArrayList<>();
 
   @Override
   public void init() throws ServletException {
@@ -53,49 +40,34 @@ public class DispatcherServlet extends HttpServlet {
     AssignmentDao assignmentDao = (AssignmentDao) ctx.getAttribute("assignmentDao");
     AttachedFileDao attachedFileDao = (AttachedFileDao) ctx.getAttribute("attachedFileDao");
 
-    String memberUploadDir = this.getServletContext().getRealPath("/upload");
-    controllerMap.put("/home", new HomeController());
-    controllerMap.put("/member/list", new MemberListController(memberDao));
-    controllerMap.put("/member/view", new MemberViewController(memberDao));
-    controllerMap.put("/member/add", new MemberAddController(memberDao, memberUploadDir));
-    controllerMap.put("/member/update", new MemberUpdateController(memberDao, memberUploadDir));
-    controllerMap.put("/member/delete", new MemberDeleteServlet(memberDao, memberUploadDir));
-
-    controllerMap.put("/assignment/list", new AssignmentListController(assignmentDao));
-    controllerMap.put("/assignment/view", new AssignmentViewController(assignmentDao));
-    controllerMap.put("/assignment/add", new AssignmentAddController(assignmentDao));
-    controllerMap.put("/assignment/update", new AssignmentUpdateController(assignmentDao));
-    controllerMap.put("/assignment/delete", new AssignmentDeleteController(assignmentDao));
-
-    controllerMap.put("/auth/login", new LoginController(memberDao));
-    controllerMap.put("/auth/logout", new LogoutController());
+    controllers.add(new HomeController());
+    controllers.add(new AssignmentController(assignmentDao));
+    controllers.add(new AuthController(memberDao));
 
     String boardUploadDir = this.getServletContext().getRealPath("/upload/board");
-    controllerMap.put("/board/list", new BoardListController(boardDao));
-    controllerMap.put("/board/view", new BoardViewController(boardDao, attachedFileDao));
-    controllerMap.put("/board/add",
-        new BoardAddController(txManager, boardDao, attachedFileDao, boardUploadDir));
-    controllerMap.put("/board/update",
-        new BoardUpdateController(txManager, boardDao, attachedFileDao, boardUploadDir));
-    controllerMap.put("/board/delete",
-        new BoardDeleteController(txManager, boardDao, attachedFileDao, boardUploadDir));
-    controllerMap.put("/board/file/delete",
-        new BoardFileDeleteController(boardDao, attachedFileDao, boardUploadDir));
+    controllers.add(new BoardController(txManager, boardDao, attachedFileDao, boardUploadDir));
+
+    String memberUploadDir = this.getServletContext().getRealPath("/upload");
+    controllers.add(new MemberController(memberDao, memberUploadDir));
+
+
   }
 
   @Override
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    // URL에서 요청한 페이지 컨트롤러를 실행한다.
-    PageController controller = controllerMap.get(request.getPathInfo());
-    if (controller == null) {
-      throw new ServletException(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
-    }
-
     try {
-      String viewUrl = controller.execute(request, response);
+      // URL 요청을 처리할 request handler를 찾는다
+      RequestHandler requestHandler = findRequestHandler(request.getPathInfo());
 
+      if (requestHandler == null) {
+        throw new Exception(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
+      }
+
+      String viewUrl = (String) requestHandler.handler.invoke(requestHandler.controller, request,
+          response);
+      // 페이지 컨트롤러가 알려준 JSP로 포워딩 한다
       if (viewUrl.startsWith("redirect:")) {
         response.sendRedirect(viewUrl.substring(9));
       } else {
@@ -112,5 +84,19 @@ public class DispatcherServlet extends HttpServlet {
 
       request.getRequestDispatcher("/error.jsp").forward(request, response);
     }
+  }
+
+
+  private RequestHandler findRequestHandler(String path) {
+    for (Object controller : controllers) {
+      Method[] methods = controller.getClass().getDeclaredMethods(); // 컨트롤러 객체에서 클래스 정보를 가져온다음에
+      for (Method m : methods) {
+        RequestMapping requestMapping = m.getAnnotation(RequestMapping.class);
+        if (requestMapping != null && requestMapping.value().equals(path)) {
+          return new RequestHandler(controller, m);
+        }
+      }
+    }
+    return null; // requestMapping 객체를 다 찾은 다음에 없으면 null을 리턴한다.
   }
 }
