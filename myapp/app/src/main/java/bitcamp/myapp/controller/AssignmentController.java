@@ -3,8 +3,8 @@ package bitcamp.myapp.controller;
 import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.vo.Assignment;
 import java.sql.Date;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class AssignmentController {
 
@@ -15,7 +15,7 @@ public class AssignmentController {
   }
 
   @RequestMapping("/assignment/add")
-  public String add(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  public String add(HttpServletRequest request) throws Exception {
     if (request.getMethod().equals("GET")) {
       return "/assignment/form.jsp";
     }
@@ -30,27 +30,24 @@ public class AssignmentController {
   }
 
   @RequestMapping("/assignment/list")
-  public String list(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  public String list(HttpServletRequest request) throws Exception {
     request.setAttribute("list", assignmentDao.findAll());
 
     return "/assignment/list.jsp";
   }
 
   @RequestMapping("/assignment/view")
-  public String view(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    int no = Integer.parseInt(request.getParameter("no"));
+  public String view(@RequestParam("no") int no, ServletRequest request) throws Exception {
     Assignment assignment = assignmentDao.findBy(no);
     if (assignment == null) {
       throw new Exception("과제 번호가 유효하지 않습니다.");
     }
-
     request.setAttribute("assignment", assignment);
-    request.setAttribute("viewUrl", "/assignment/view.jsp");
     return "/assignment/view.jsp";
   }
 
   @RequestMapping("/assignment/update")
-  public String update(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  public String update(HttpServletRequest request) throws Exception {
     int no = Integer.parseInt(request.getParameter("no"));
 
     Assignment old = assignmentDao.findBy(no);
@@ -70,7 +67,7 @@ public class AssignmentController {
   }
 
   @RequestMapping("/assignment/delete")
-  public String delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  public String delete(HttpServletRequest request) throws Exception {
     int no = Integer.parseInt(request.getParameter("no"));
     if (assignmentDao.delete(no) == 0) {
       throw new Exception("과제 번호가 유효하지 않습니다.");
