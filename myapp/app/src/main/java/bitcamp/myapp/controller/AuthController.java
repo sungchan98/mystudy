@@ -7,11 +7,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 public class AuthController {
 
   MemberDao memberDao;
-
 
   public AuthController(MemberDao memberDao) {
     this.memberDao = memberDao;
@@ -42,11 +40,9 @@ public class AuthController {
     }
 
     Member member = memberDao.findByEmailAndPassword(email, password);
-
     if (member != null) {
       session.setAttribute("loginUser", member);
     }
-
     return "/auth/login.jsp";
   }
 

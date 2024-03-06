@@ -1,18 +1,15 @@
 package bitcamp.myapp.servlet;
 
-import bitcamp.myapp.controller.AssignmentController;
-import bitcamp.myapp.controller.AuthController;
-import bitcamp.myapp.controller.BoardController;
 import bitcamp.myapp.controller.CookieValue;
-import bitcamp.myapp.controller.HomeController;
-import bitcamp.myapp.controller.MemberController;
 import bitcamp.myapp.controller.RequestMapping;
 import bitcamp.myapp.controller.RequestParam;
 import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.dao.MemberDao;
+import bitcamp.util.Component;
 import bitcamp.util.TransactionManager;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -21,6 +18,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,9 +34,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10)
-@WebServlet("/app/*")
+@WebServlet(urlPatterns = "/app/*", loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
 
   private Map<String, RequestHandler> requestHandlerMap = new HashMap<>();
@@ -46,23 +45,29 @@ public class DispatcherServlet extends HttpServlet {
 
   @Override
   public void init() throws ServletException {
-    ServletContext ctx = this.getServletContext();
-    TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
-    BoardDao boardDao = (BoardDao) ctx.getAttribute("boardDao");
-    MemberDao memberDao = (MemberDao) ctx.getAttribute("memberDao");
-    AssignmentDao assignmentDao = (AssignmentDao) ctx.getAttribute("assignmentDao");
-    AttachedFileDao attachedFileDao = (AttachedFileDao) ctx.getAttribute("attachedFileDao");
+    try {
+      System.setProperty("board.upload.dir", this.getServletContext().getRealPath("/upload/board"));
+      System.setProperty("member.upload.dir", this.getServletContext().getRealPath("/upload"));
 
-    controllers.add(new HomeController());
-    controllers.add(new AssignmentController(assignmentDao));
-    controllers.add(new AuthController(memberDao));
+      ServletContext ctx = this.getServletContext();
+      TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
+      BoardDao boardDao = (BoardDao) ctx.getAttribute("boardDao");
+      MemberDao memberDao = (MemberDao) ctx.getAttribute("memberDao");
+      AssignmentDao assignmentDao = (AssignmentDao) ctx.getAttribute("assignmentDao");
+      AttachedFileDao attachedFileDao = (AttachedFileDao) ctx.getAttribute("attachedFileDao");
 
-    String boardUploadDir = this.getServletContext().getRealPath("/upload/board");
-    controllers.add(new BoardController(txManager, boardDao, attachedFileDao, boardUploadDir));
+//      controllers.add(new HomeController());
+//      controllers.add(new AssignmentController(assignmentDao));
+//      controllers.add(new AuthController(memberDao));
+//      controllers.add(new BoardController(txManager, boardDao, attachedFileDao));
+//      controllers.add(new MemberController(memberDao));
 
-    String memberUploadDir = this.getServletContext().getRealPath("/upload");
-    controllers.add(new MemberController(memberDao, memberUploadDir));
-    prepareRequestHandlers(controllers);
+      preparePageControllers();
+      prepareRequestHandlers(controllers);
+      
+    } catch (Exception e) {
+      throw new ServletException(e);
+    }
   }
 
   @Override
@@ -110,6 +115,35 @@ public class DispatcherServlet extends HttpServlet {
     }
   }
 
+  private void preparePageControllers() throws Exception {
+    File classpath = new File("./build/classes/java/main");
+    System.out.println(classpath.getCanonicalPath());
+    findComponets(classpath, "");
+  }
+
+  private void findComponets(File dir, String pakageName) throws Exception {
+    File[] files = dir.listFiles(file ->
+        file.isDirectory() || file.isFile()
+            && !file.getName().contains("$")
+            && (file.getName().endsWith(".class")));
+
+    if (pakageName.length() > 0) {
+      pakageName += ".";
+    }
+    for (File file : files) {
+      if (file.isFile()) {
+        Class<?> clazz = Class.forName(pakageName + file.getName().replace(".class", ""));
+        Component compAnno = clazz.getAnnotation(Component.class);
+        if (compAnno != null) {
+          Constructor<?> constructor = clazz.getConstructor();
+          controllers.add(constructor.newInstance());
+          System.out.println(clazz.getName() + "객체 생성!");
+        }
+      } else {
+        findComponets(file, pakageName + file.getName());
+      }
+    }
+  }
 
   private void prepareRequestHandlers(List<Object> controllers) {
     for (Object controller : controllers) {
@@ -163,10 +197,31 @@ public class DispatcherServlet extends HttpServlet {
           // 클라이언트가 보낸 요청 파라미터 값을 원한다면
           // 그 값을 메서드의 파라미터 타입으로 변환한후 저장한다.
           String requestParameterName = requestParam.value();
-          String requestParameterValue = request.getParameter(requestParameterName);
-          args[i] = valueOf(requestParameterValue, methodParam.getType());
-          continue;
 
+          if (methodParam.getType() == Part[].class) {
+            Collection<Part> parts = request.getParts();
+            List<Part> fileParts = new ArrayList<>();
+            for (Part part : parts) {
+              if (part.getName().equals(requestParameterName)) {
+                fileParts.add(part);
+              }
+            }
+            args[i] = fileParts.toArray(new Part[0]);
+
+          } else if (methodParam.getType() == Part.class) {
+            Collection<Part> parts = request.getParts();
+            for (Part part : parts) {
+              if (part.getName().equals(requestParameterName)) {
+                args[i] = part;
+                break;
+
+              }
+            }
+          } else {
+            String requestParameterValue = request.getParameter(requestParameterName);
+            args[i] = valueOf(requestParameterValue, methodParam.getType());
+          }
+          continue;
         }
         // 파라미터 타입이 도메인 클래스일 경우 해당 클래스의 객체를 준비하여
         // 그 객체에 요청 파라미터 값들을 담은 다음에 저장한다.
