@@ -6,22 +6,18 @@ public class Main {
   public static void main(String[] args) {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
-    int arr[] = new int[10];
-    double sum = 0;
+    int n = sc.nextInt();
+    int arr[] = new int[n];
+    int arr2[] = new int[n];
     int cnt = 0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < n; i++) {
       arr[i] = sc.nextInt();
-      sum += arr[i];
-      if (arr[i] == 0) {
-        break;
+      if (arr[i] % 2 == 0) {
+        System.out.print(arr[n - i] + " ");
       }
-      cnt++;
     }
-
-    // for (int i = cnt + 1; i < 10; i++) {
-    // arr[i] = sc.nextInt();
+    // for (int i = cnt - 1; i >= 0; i--) {
+    // System.out.print(arr2[i] + " ");
     // }
-
-    System.out.printf("%d %.1f", (int) sum, sum / cnt);
   }
 }
