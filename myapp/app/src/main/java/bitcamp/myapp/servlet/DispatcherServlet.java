@@ -1,15 +1,9 @@
 package bitcamp.myapp.servlet;
 
+import bitcamp.context.ApplicationContext;
 import bitcamp.myapp.controller.CookieValue;
 import bitcamp.myapp.controller.RequestMapping;
 import bitcamp.myapp.controller.RequestParam;
-import bitcamp.myapp.dao.AssignmentDao;
-import bitcamp.myapp.dao.AttachedFileDao;
-import bitcamp.myapp.dao.BoardDao;
-import bitcamp.myapp.dao.MemberDao;
-import bitcamp.util.Component;
-import bitcamp.util.TransactionManager;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -23,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -41,7 +34,8 @@ import javax.servlet.http.Part;
 public class DispatcherServlet extends HttpServlet {
 
   private Map<String, RequestHandler> requestHandlerMap = new HashMap<>();
-  private List<Object> controllers = new ArrayList<>();
+  private ApplicationContext applicationContext;
+
 
   @Override
   public void init() throws ServletException {
@@ -49,22 +43,12 @@ public class DispatcherServlet extends HttpServlet {
       System.setProperty("board.upload.dir", this.getServletContext().getRealPath("/upload/board"));
       System.setProperty("member.upload.dir", this.getServletContext().getRealPath("/upload"));
 
-      ServletContext ctx = this.getServletContext();
-      TransactionManager txManager = (TransactionManager) ctx.getAttribute("txManager");
-      BoardDao boardDao = (BoardDao) ctx.getAttribute("boardDao");
-      MemberDao memberDao = (MemberDao) ctx.getAttribute("memberDao");
-      AssignmentDao assignmentDao = (AssignmentDao) ctx.getAttribute("assignmentDao");
-      AttachedFileDao attachedFileDao = (AttachedFileDao) ctx.getAttribute("attachedFileDao");
+      applicationContext = new ApplicationContext(
+          (ApplicationContext) this.getServletContext().getAttribute("applicationContext"),
+          "bitcamp.myapp.controller");
 
-//      controllers.add(new HomeController());
-//      controllers.add(new AssignmentController(assignmentDao));
-//      controllers.add(new AuthController(memberDao));
-//      controllers.add(new BoardController(txManager, boardDao, attachedFileDao));
-//      controllers.add(new MemberController(memberDao));
+      prepareRequestHandlers(applicationContext.getBeans());
 
-      preparePageControllers();
-      prepareRequestHandlers(controllers);
-      
     } catch (Exception e) {
       throw new ServletException(e);
     }
@@ -75,33 +59,32 @@ public class DispatcherServlet extends HttpServlet {
       throws ServletException, IOException {
 
     try {
-      // URL 요청을 처리할 request handler를 찾는다
+      // URL 요청을 처리할 request handler를 찾는다.
       RequestHandler requestHandler = requestHandlerMap.get(request.getPathInfo());
-
       if (requestHandler == null) {
         throw new Exception(request.getPathInfo() + " 요청 페이지를 찾을 수 없습니다.");
       }
 
       // 페이지 컨트롤러가 작업한 결과를 담을 보관소를 준비한다.
       Map<String, Object> map = new HashMap<>();
-
       Object[] args = prepareRequestHandlerArguments(requestHandler.handler, request, response,
           map);
 
       String viewUrl = (String) requestHandler.handler.invoke(requestHandler.controller, args);
 
-      //페이지 컨트롤러의 작업이 끝난 후 map 객체에 보관된 값을 JSP가 사용할 수 있도록
+      // 페이지 컨트롤러의 작업이 끝난 후 map 객체에 보관된 값을 JSP가 사용할 수 있도록
       // ServletRequest 보관소로 옮긴다.
       for (Entry<String, Object> entry : map.entrySet()) {
         request.setAttribute(entry.getKey(), entry.getValue());
       }
 
-      // 페이지 컨트롤러가 알려준 JSP로 포워딩 한다
+      // 페이지 컨트롤러가 알려준 JSP로 포워딩 한다.
       if (viewUrl.startsWith("redirect:")) {
         response.sendRedirect(viewUrl.substring(9));
       } else {
         request.getRequestDispatcher(viewUrl).forward(request, response);
       }
+
     } catch (Exception e) {
       // 페이지 컨트롤러에서 오류가 발생했으면 오류페이지로 포워딩한다.
       request.setAttribute("message", request.getPathInfo() + " 실행 오류!");
@@ -115,39 +98,9 @@ public class DispatcherServlet extends HttpServlet {
     }
   }
 
-  private void preparePageControllers() throws Exception {
-    File classpath = new File("./build/classes/java/main");
-    System.out.println(classpath.getCanonicalPath());
-    findComponets(classpath, "");
-  }
-
-  private void findComponets(File dir, String pakageName) throws Exception {
-    File[] files = dir.listFiles(file ->
-        file.isDirectory() || file.isFile()
-            && !file.getName().contains("$")
-            && (file.getName().endsWith(".class")));
-
-    if (pakageName.length() > 0) {
-      pakageName += ".";
-    }
-    for (File file : files) {
-      if (file.isFile()) {
-        Class<?> clazz = Class.forName(pakageName + file.getName().replace(".class", ""));
-        Component compAnno = clazz.getAnnotation(Component.class);
-        if (compAnno != null) {
-          Constructor<?> constructor = clazz.getConstructor();
-          controllers.add(constructor.newInstance());
-          System.out.println(clazz.getName() + "객체 생성!");
-        }
-      } else {
-        findComponets(file, pakageName + file.getName());
-      }
-    }
-  }
-
-  private void prepareRequestHandlers(List<Object> controllers) {
+  private void prepareRequestHandlers(Collection<Object> controllers) {
     for (Object controller : controllers) {
-      Method[] methods = controller.getClass().getDeclaredMethods(); // 컨트롤러 객체에서 클래스 정보를 가져온다음에
+      Method[] methods = controller.getClass().getDeclaredMethods();
       for (Method m : methods) {
         RequestMapping requestMapping = m.getAnnotation(RequestMapping.class);
         if (requestMapping != null) {
@@ -195,7 +148,7 @@ public class DispatcherServlet extends HttpServlet {
         RequestParam requestParam = methodParam.getAnnotation(RequestParam.class);
         if (requestParam != null) {
           // 클라이언트가 보낸 요청 파라미터 값을 원한다면
-          // 그 값을 메서드의 파라미터 타입으로 변환한후 저장한다.
+          // 그 값을 메서드의 파라미터 타입으로 변환한 후 저장한다.
           String requestParameterName = requestParam.value();
 
           if (methodParam.getType() == Part[].class) {
@@ -214,7 +167,6 @@ public class DispatcherServlet extends HttpServlet {
               if (part.getName().equals(requestParameterName)) {
                 args[i] = part;
                 break;
-
               }
             }
           } else {
@@ -223,12 +175,13 @@ public class DispatcherServlet extends HttpServlet {
           }
           continue;
         }
-        // 파라미터 타입이 도메인 클래스일 경우 해당 클래스의 객체를 준비하여
-        // 그 객체에 요청 파라미터 값들을 담은 다음에 저장한다.
-        args[i] = createValueObject(methodParam.getType(), request);
 
+        // 파라미터 타입이 도메인 클래스일 경우 해당 클래스의 객체를 준비하여
+        // 그 객체에 요청 파라미터 값들을 담은 다음에 저장한다..
+        args[i] = createValueObject(methodParam.getType(), request);
       }
     }
+
     return args;
   }
 
@@ -258,13 +211,9 @@ public class DispatcherServlet extends HttpServlet {
     return null;
   }
 
-  // request handler의 파라미터 타입이 도메인 클래스 일때,
-  //
+  // request handler의 파라미터 타입이 도메인 클래스일 때,
+  // 해당 클래스의 객체를 생성하고 요청 파라미터 값을 담아서 리턴한다.
   private Object createValueObject(Class<?> type, HttpServletRequest request) throws Exception {
-    // request handler 가 원하는 값이 Domain 객체라면,
-    // 도메인 객체를 생성한 후
-    // 도메인 객체의 프로퍼티 이름과 일치하는 요청 파라미터 값을 담아서준다
-
     // 1) 도메인 클래스의 생성자 알아냄
     Constructor constructor = type.getConstructor();
 
@@ -275,27 +224,27 @@ public class DispatcherServlet extends HttpServlet {
     Method[] methods = type.getDeclaredMethods();
 
     // 4) 메서드 중에서 셋터 메서드를 알아냄
-    for (Method setteer : methods) {
-      if (!setteer.getName().startsWith("set")) {
+    for (Method setter : methods) {
+      if (!setter.getName().startsWith("set")) {
         continue;
       }
 
       // 5) 셋터 메서드의 이름에서 프로퍼티 이름을 추출
-      // 예) setFistName ==> firstName
+      // 예) setFirstName ==> firstName
       String propName =
-          Character.toLowerCase(setteer.getName().charAt(3)) + setteer.getName().substring(4);
+          Character.toLowerCase(setter.getName().charAt(3)) + setter.getName().substring(4);
 
-      // 6) 프로퍼티 이르으로 넘어온 요청 파라미터 값을 꺼낸다.
+      // 6) 프로퍼티 이름으로 넘어온 요청 파라미터 값을 꺼낸다.
       String requestParamValue = request.getParameter(propName);
 
       // 7) 도메인 객체의 프로퍼티 이름과 일치하는 요청 파라미터 값이 있다면 객체에 저장한다.
       if (requestParamValue != null) {
-        // 셋터 메서드의 파라미터 타입을 알아낸다
-        Class<?> setterParameterType = setteer.getParameters()[0].getType();
+        // 셋터 메서드의 파라미터 타입을 알아낸다.
+        Class<?> setterParameterType = setter.getParameters()[0].getType();
 
-        // 셋터를 호출한다
+        // 셋터를 호출한다.
         // 예) setFirstName("길동");
-        setteer.invoke(obj, valueOf(requestParamValue, setterParameterType));
+        setter.invoke(obj, valueOf(requestParamValue, setterParameterType));
       }
     }
     return obj;
@@ -312,4 +261,5 @@ public class DispatcherServlet extends HttpServlet {
     }
     return null;
   }
+
 }
