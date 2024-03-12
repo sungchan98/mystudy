@@ -38,6 +38,7 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     -->
     
+  
     <context:annotation-config/>
     
     <!-- 같은 타입(Engine)의 의존 객체가 여러 개 있을 때? 
