@@ -1,31 +1,23 @@
 package bitcamp.config;
 
-import javax.servlet.Registration.Dynamic;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppWebApplicationInitializer extends AbstractDispatcherServletInitializer {
+public class AppWebApplicationInitializer extends
+    AbstractAnnotationConfigDispatcherServletInitializer {
 
   private  static Log log = LogFactory.getLog(AppWebApplicationInitializer.class);
-  AnnotationConfigWebApplicationContext rootContext;
 
   @Override
-  protected WebApplicationContext createRootApplicationContext() {
+  protected Class<?>[] getRootConfigClasses() {
     return null;
   }
 
   @Override
-  protected WebApplicationContext createServletApplicationContext() {
-    AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-    appContext.register(AppConfig.class);
-    appContext.refresh();
-    return appContext;
+  protected Class<?>[] getServletConfigClasses() {
+    return new Class[]{AppConfig.class};
   }
 
   @Override
@@ -37,5 +29,4 @@ public class AppWebApplicationInitializer extends AbstractDispatcherServletIniti
   protected String getServletName() {
     return "app";
   }
-
 }
