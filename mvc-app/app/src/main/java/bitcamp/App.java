@@ -9,7 +9,6 @@ import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
 
 public class App {
-
     public static void main(String[] args) throws Exception {
         System.out.println("서버 실행!");
 
