@@ -3,36 +3,41 @@ package algorithm.test.codetree;
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) {
-    // 여기에 코드를 작성해주세요.
-    Scanner sc = new Scanner(System.in);
-    String arr[] = new String[10];
-    int arr2[] = new int[10];
+    public static void main(String[] args) {
+        // 여기에 코드를 작성해주세요.
+        Scanner sc = new Scanner(System.in);
+   
 
-    int cntArr[] = new int[10];
-    String cntArr2[] = new String[10];
+        char[] word = new char[]{'L','E','B','R','O','S'};
+        char c = sc.next();
 
-    for (int i = 0; i < 3; i++) {
-      arr[i] = sc.next();
-      arr2[i] = sc.nextInt();
+        int idx = -1;
 
-      if (arr[i].equals("Y") && arr2[i] >= 37) {
-        cntArr[i]++;
-      } else if (arr[i].equals("N") && arr2[i] >= 37) {
-        cntArr[i]++;
-      } else if (arr[i].equals("Y") && arr2[i] < 37) {
-        cntArr[i]++;
-      } else {
-        cntArr[i]++;
-      }
+        for(int i=0; i<6;i++){
+            if(word[i] == 'L'){
+                idx = i;
+             }else if(word[i] == 'E'){
+                 idx = i;
+             }else if(word[i] == 'B'){
+                 idx = i;
+             }else if(word[i] == 'R'){
+                 idx = i;
+             }else if(word[i] == 'O'){
+                 idx = i;
+             }else if(word[i] == 'S'){
+                 idx = i;
+             }
 
+        }
+        if (idx == -1) {
+            System.out.println("None");
+        }
+        else {
+            System.out.println(idx);
+        }
     }
-
-    for (int i = 0; i < 4; i++) {
-      System.out.print(cntArr[i] + " ");
-    }
-
-
-
-  }
 }
+
+
+
+}}
