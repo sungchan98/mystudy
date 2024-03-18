@@ -12,7 +12,7 @@ public class App1Config {
 
   @Bean
   MultipartResolver multipartResolver(){
-    StandardServletMultipartResolver mr = new StandardServletMultipartResolver(); // 스프리엥 있는 프론트컨트롤러를 위한 것
+    StandardServletMultipartResolver mr = new StandardServletMultipartResolver(); // 스프링에 있는 프론트컨트롤러를 위한 것
     return mr;
   }
 }

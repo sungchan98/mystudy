@@ -12,7 +12,7 @@ public class Controller03_4 {
   @PostMapping(consumes = "application/x-www-form-urlencoded")
   @ResponseBody
   public String handler1(@RequestBody String s) {
-    //System.out.printf("%s: %d\n",name,age);
+    //System.out.printf("%s : %d\n", name, age);
     System.out.println(s);
     return "handler1";
   }
@@ -21,7 +21,7 @@ public class Controller03_4 {
   @PostMapping(consumes = "multipart/form-data")
   @ResponseBody
   public String handler2(String name, int age) {
-    System.out.printf("%s: %d\n",name,age);
+    System.out.printf("%s : %d\n", name, age);
     return "handler2";
   }
 
@@ -29,7 +29,7 @@ public class Controller03_4 {
   @PostMapping(consumes = "text/csv")
   @ResponseBody
   public String handler3(@RequestBody String content) {
-    System.out.printf(content);
+    System.out.println(content);
     return "handler3";
   }
 

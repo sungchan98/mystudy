@@ -9,7 +9,7 @@ public class Main {
    
 
         char[] word = new char[]{'L','E','B','R','O','S'};
-        char c = sc.next();
+        char c = sc.next().charAt(0);
 
         int idx = -1;
 
