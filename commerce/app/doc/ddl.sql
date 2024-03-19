@@ -58,3 +58,56 @@ alter table product_files
   add constraint primary key (file_no),
   modify column file_no int not null auto_increment,
   add constraint commerce_files_fk foreign key (product_no) references commerces(product_no);
+
+
+
+---------------------------------------------------------------
+drop table if exists users restrict;
+drop table if exists replies restrict;
+drop table if exists likes restrict;
+drop table if exists logs restrict;
+drop table if exists schools restrict;
+drop table if exists tags restrict;
+drop table if exists member_tags restrict;
+drop table if exists school_user restrict;
+drop table if exists tokens restrict;
+drop table if exists categories restrict;
+drop table if exists classes restrict;
+drop table if exists class_user restrict;
+drop table if exists school_tags restrict;
+drop table if exists logIndexes restrict;
+drop table if exists purchases restrict;
+drop table if exists grades restrict;
+drop table if exists follows restrict;
+drop table if exists dm restrict;
+drop table if exists com_chats restrict;
+drop table if exists files restrict;
+drop table if exists alerts restrict;
+drop table if exists posts restrict;
+
+
+
+
+
+drop talbe users;
+drop talbe replies;
+drop talbe likes;
+drop talbe logs;
+drop talbe schools;
+drop talbe tags;
+drop talbe member_tags;
+drop talbe school_user;
+drop talbe tokens;
+drop talbe categories;
+drop talbe classes;
+drop talbe class_user;
+drop talbe school_tags;
+drop talbe logIndexes;
+drop talbe purchases;
+drop talbe grades;
+drop talbe follows;
+drop talbe dm;
+drop talbe com_chats;
+drop talbe files;
+drop talbe alerts;
+
