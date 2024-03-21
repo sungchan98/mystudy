@@ -10,10 +10,9 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource({
     "classpath:config/jdbc.properties"
 })
-public class Rootconfig {
+public class RootConfig {
 
-
-  public Rootconfig() {
+  public RootConfig() {
     System.out.println("RootConfig()... 호출됨!");
   }
 }

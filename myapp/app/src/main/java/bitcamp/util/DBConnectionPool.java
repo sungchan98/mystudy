@@ -11,6 +11,7 @@ public class DBConnectionPool implements ConnectionPool {
 
   // 개별 스레드용 DB 커넥션 저장소
   private static final ThreadLocal<Connection> connectionThreadLocal = new ThreadLocal<>();
+
   // DB 커넥션 목록
   ArrayList<Connection> connections = new ArrayList<>();
 
@@ -19,13 +20,12 @@ public class DBConnectionPool implements ConnectionPool {
 
   @Value("${jdbc.username}")
   private String username;
+
   @Value("${jdbc.password}")
   private String password;
 
-
   public DBConnectionPool() {
     System.out.println("DBConnectionPool() 호출됨!");
-
   }
 
   public Connection getConnection() throws Exception {

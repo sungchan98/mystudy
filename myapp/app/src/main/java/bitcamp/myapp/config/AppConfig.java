@@ -8,7 +8,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 @ComponentScan(value = {
     "bitcamp.myapp.controller"
 })
-public class Appconfig {
+public class AppConfig {
 
   @Bean
   MultipartResolver multipartResolver() {
