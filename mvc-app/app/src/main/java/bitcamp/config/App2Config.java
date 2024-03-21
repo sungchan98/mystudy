@@ -50,7 +50,7 @@ public class App2Config implements WebMvcConfigurer {
 
     registry.addInterceptor(new Interceptor4()).
         addPathPatterns("/c04_1/**").
-        excludePathPatterns("/c04_1/a/**");
+          excludePathPatterns("/c04_1/a/**");
 
 
   }
