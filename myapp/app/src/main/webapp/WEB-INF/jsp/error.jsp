@@ -8,12 +8,12 @@
 </head>
 <body>
 
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
 <h1>오류!</h1>
 
 <c:if test="${not empty message}">
-  <p>${error.message}</p>
+  <p>${message}</p>
 </c:if>
 
 <c:if test="${not empty detail}">
@@ -22,7 +22,7 @@
   </pre>
 </c:if>
 
-<jsp:include page="/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

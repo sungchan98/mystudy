@@ -43,4 +43,8 @@ insert into assignments(assignment_no,title,content,deadline)
 insert into assignments(assignment_no,title,content,deadline)
   values(5,'과제5','내용5','2024-5-5');
 
+-- dm 테이블 데이터
+insert into dm(partitions,type,possible_keys,key,key_len,ref,rows,filtered,Extra)
+  values(1,'과제1','내용1','2024-1-1');
+
 

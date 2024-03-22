@@ -28,7 +28,6 @@ public class AppWebApplicationInitializer extends
     return new Class[]{AppConfig.class};
   }
 
-
   @Override
   protected String[] getServletMappings() {
     return new String[]{"/app/*"};
@@ -49,4 +48,5 @@ public class AppWebApplicationInitializer extends
   protected Filter[] getServletFilters() {
     return new Filter[]{new CharacterEncodingFilter("UTF-8")};
   }
+
 }

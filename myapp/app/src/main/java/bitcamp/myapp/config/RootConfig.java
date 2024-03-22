@@ -21,7 +21,6 @@ public class RootConfig {
 
   private final Log log = LogFactory.getLog(this.getClass());
 
-
   public RootConfig() {
     log.debug("생성자 호출됨!");
   }

@@ -25,15 +25,15 @@ public class GlobalControllerAdvice {
   @ExceptionHandler
   public ModelAndView exceptionHandler(Exception e) {
     ModelAndView mv = new ModelAndView();
+    mv.addObject("message", e.getMessage());
 
-    mv.addObject("mesage", e.getMessage());
     StringWriter stringWriter = new StringWriter();
     PrintWriter out = new PrintWriter(stringWriter);
     e.printStackTrace(out);
 
     mv.addObject("detail", stringWriter.toString());
 
-    mv.setViewName("/error.jsp");
+    mv.setViewName("error");
     return mv;
   }
 }
