@@ -36,7 +36,7 @@
   암호: <input name='password' type='password'>
 </div>
 <div>
-  가입일: <fmt:formatDate value="${member.createdDate}" pattern="yyyy-MM-dd"/>
+  가입일: <input readonly type='text' value='<fmt:formatDate value="${member.createdDate}" pattern="yyyy-MM-dd"/>'>
 </div>
 <div>
   <button>변경</button>
