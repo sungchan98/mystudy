@@ -82,13 +82,7 @@ public class BoardController {
       }
     }
 
-    boardDao.add(board);
-    if (files.size() > 0) {
-      for (AttachedFile attachedFile : files) {
-        attachedFile.setBoardNo(board.getNo());
-      }
-      attachedFileDao.addAll(files);
-    }
+    board.setFiles(files);
 
     return "redirect:list";
 
