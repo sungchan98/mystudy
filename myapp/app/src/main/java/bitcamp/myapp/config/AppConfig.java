@@ -10,7 +10,7 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@EnableTransactionManagement
+@EnableTransactionManagement // 이 애노테이션을 붙이면 트랜잭션이라는 애노테이션이 붙은 객체가 자동 등록된다.
 @ComponentScan(value = {
     "bitcamp.myapp.controller"
 })

@@ -30,6 +30,9 @@ public class BoardController {
   private AttachedFileDao attachedFileDao;
   private String uploadDir;
 
+//  @Autowired
+//  private ApplicationContext ctx;
+
   public BoardController(
       BoardDao boardDao,
       AttachedFileDao attachedFileDao,
@@ -44,6 +47,11 @@ public class BoardController {
   public void form(int category, Model model) throws Exception {
     model.addAttribute("boardName", category == 1 ? "게시글" : "가입인사");
     model.addAttribute("category", category);
+    // IoC 컨테이너에 들어있는 객체들
+//    String[] beanNames = ctx.getBeanDefinitionNames();
+//    for(String beanName : beanNames){
+//      log.debug(ctx.getBean(beanName).getClass().getSimpleName());
+//    }
   }
 
   @Transactional()
