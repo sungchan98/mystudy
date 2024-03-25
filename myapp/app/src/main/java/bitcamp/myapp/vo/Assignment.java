@@ -2,55 +2,20 @@ package bitcamp.myapp.vo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor // 기본생성자
+//@RequiredArgsConstructor // 필수값을 받는 생성자
+//@AllArgsConstructor // 모든 아규먼트를 다 받는 생성자
+@Data
 public class Assignment implements Serializable {
 
   private static final long serialVersionUID = 100L;
-
-  private int no;
   private String title;
   private String content;
+  private int no;
   private Date deadline;
 
-  @Override
-  public String toString() {
-    return "Assignment{" +
-        "no=" + no +
-        ", title='" + title + '\'' +
-        ", content='" + content + '\'' +
-        ", deadline=" + deadline +
-        '}';
-  }
 
-  public int getNo() {
-    return no;
-  }
-
-  public void setNo(int no) {
-    this.no = no;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Date getDeadline() {
-    return deadline;
-  }
-
-  public void setDeadline(Date deadline) {
-    this.deadline = deadline;
-  }
 }
