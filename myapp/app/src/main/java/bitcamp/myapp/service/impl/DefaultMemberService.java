@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor // 이 클래스의 필수 의존객체를 받는 생성자를 자동으로 만든다.
 @Service
 public class DefaultMemberService implements MemberService {
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor // final로 선언된 필드가 있다면 필드를 만들라
 @Controller
 @RequestMapping("/auth")
 public class AuthController {

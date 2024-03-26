@@ -5,72 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a84827e7-6d13-4c5e-bb9d-79b24217473a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/myapp.app.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/logs/file/sample.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AboutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/AssignmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/AssignmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/AttachedFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/AttachedFileMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/0ab3bdfc-5cf1-4081-aa20-84c4abc71364" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/24a2d386-50f2-42c2-9a75-a4364a571424" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/2e61aea0-4caf-42b7-b42e-807b23323c95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/044e0bcd-109b-44e1-a361-33f7c581884a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/0659a753-5663-4c51-9e48-61d90e2df2dc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/2e3b787c-da70-4bd3-9a48-1bd5500e3e73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/78c76397-1345-49e8-ad20-daab1141a7d7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/807ab687-9a8d-4800-8a14-1f0aaec0e7e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/bd59c4c3-98e5-406b-ba9b-fe1349fa3ca0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/about_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/about_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/form_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/form_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/list_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/list_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/view_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/view_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/form_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/form_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/login_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/login_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/form_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/form_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/list_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/list_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/view_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/view_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/error_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/error_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/footer_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/footer_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/header_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/header_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/home_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/home_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/form_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/form_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/list_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/list_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/view_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/view_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Member.java" afterDir="false" />
     </list>
     <list id="8fdbd381-122d-4262-90ab-be4499feb56a" name="tjdah 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +305,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java</url>
-          <line>99</line>
+          <line>100</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

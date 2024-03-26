@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@Data
+@Data //= @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
 public class Assignment implements Serializable {
 
   private static final long serialVersionUID = 100L;
