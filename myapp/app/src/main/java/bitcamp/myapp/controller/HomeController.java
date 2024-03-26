@@ -11,6 +11,7 @@ public class HomeController {
   private static final Log log = LogFactory.getLog(HomeController.class);
 
   @GetMapping("/home")
-  public void home() {
+  public void home() { // url이 view 이름으로 사용됨
   }
+
 }
