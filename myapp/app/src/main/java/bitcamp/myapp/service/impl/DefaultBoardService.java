@@ -6,19 +6,16 @@ import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@RequiredArgsConstructor
 @Service
 public class DefaultBoardService implements BoardService {
 
-  private BoardDao boardDao;
-  private AttachedFileDao attachedFileDao;
-
-  public DefaultBoardService(BoardDao boardDao, AttachedFileDao attachedFileDao) {
-    this.boardDao = boardDao;
-    this.attachedFileDao = attachedFileDao;
-  }
+  private final BoardDao boardDao;
+  private final AttachedFileDao attachedFileDao;
 
   @Transactional
   @Override
@@ -55,16 +52,16 @@ public class DefaultBoardService implements BoardService {
     return count;
   }
 
-  @Override
-  public List<AttachedFile> getAttachedFiles(int no) {
-    return attachedFileDao.findAllByBoardNo(no);
-  }
-
   @Transactional
   @Override
   public int delete(int no) {
     attachedFileDao.deleteAll(no);
     return boardDao.delete(no);
+  }
+
+  @Override
+  public List<AttachedFile> getAttachedFiles(int no) {
+    return attachedFileDao.findAllByBoardNo(no);
   }
 
   @Override

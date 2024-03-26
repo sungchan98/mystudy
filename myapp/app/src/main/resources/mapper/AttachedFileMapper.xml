@@ -12,12 +12,12 @@
   </resultMap>
 
   <insert id="add" parameterType="AttachedFile">
-    insert into board_files(file_path,board_no)
-    values(#{filePath},#{boardNo})
+    insert into board_files (file_path,board_no)
+    values (#{filePath},#{boardNo})
   </insert>
 
   <insert id="addAll" parameterType="list">
-    insert into board_files(file_path,board_no)
+    insert into board_files (file_path,board_no)
     values
     <foreach collection="list" item="item" separator=",">
       (#{item.filePath}, #{item.boardNo})
@@ -34,7 +34,7 @@
     where board_no=#{value}
   </delete>
 
-  <select id="findAllByBoardNo" resultType="AttachedFile" parameterType="int">
+  <select id="findAllByBoardNo" resultMap="AttachedFileMap" parameterType="int">
     select
       file_no,
       file_path,
@@ -43,17 +43,19 @@
       board_files
     where
       board_no=#{value}
-    order by file_no asc
+    order by
+      file_no asc
   </select>
 
-  <select id="findByNo" resultType="AttachedFile" parameterType="int">
+  <select id="findByNo" resultMap="AttachedFileMap" parameterType="int">
     select
       file_no,
       file_path,
       board_no
     from
       board_files
-    where file_no=#{value}
+    where
+      file_no=#{value}
   </select>
 
 </mapper>

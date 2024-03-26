@@ -42,6 +42,7 @@ public class RootConfig {
   }
 
   @Bean
+
   public SqlSessionFactory sqlSessionFactory(ApplicationContext ctx, DataSource dataSource)
       throws Exception {
     SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();

@@ -4,6 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="bitcamp.myapp.dao.MemberDao">
+
   <resultMap id="MemberMap" type="Member">
     <id column="member_no" property="no"/>
     <result column="email" property="email"/>
@@ -27,7 +28,7 @@
       email,
       name,
       photo,
-      created_date as createdDate
+      created_date
     from
       members
   </select>
@@ -57,7 +58,7 @@
       member_no=#{no}
   </update>
 
-  <select id="findByEmailAndPassword" resultMap="MemberMap" parameterType="map">
+  <select id="findByEmailAndPassword" resultMap="MemberMap">
     select
       member_no,
       email,

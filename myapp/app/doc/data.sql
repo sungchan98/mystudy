@@ -43,34 +43,4 @@ insert into assignments(assignment_no,title,content,deadline)
 insert into assignments(assignment_no,title,content,deadline)
   values(5,'과제5','내용5','2024-5-5');
 
--- likes 테이블 데이터
-insert into likes(user_no,post_no)
-  values(1,1);
-insert into likes(user_no,post_no)
-  values(1,2);
-insert into likes(user_no,post_no)
-  values(2,1);
 
---follows 테이블 데이터
-insert into fllows(user_no2,user_no)
-  values(1,1);
-insert into fllows(user_no2,user_no)
-  values(1,2);
-insert into fllows(user_no2,user_no)
-  values(2,1);
-
---files 테이블 데이터
-insert into files(post_no,name,path,size,created_at,type)
-  values(1,1,'가가가','test1','100','2023-05-01','jgp');
-insert into files(post_no,name,path,size,created_at,type)
-  values(1,1,'임꺽정','test2','100','2023-05-01','jgp');
-insert into files(post_no,name,path,size,created_at,type)
-  values(1,1,'이순신','test3','100','2023-05-01','jgp');
-
---logs 테이블 데이터
-insert into logs(log_no,action_no,user_no,created_at)
-  values(1,1,1,'2023-05-01');
-insert into logs(log_no,action_no,user_no,created_at)
-  values(2,2,1,'2023-05-01');
-insert into logs(log_no,action_no,user_no,created_at)
-  values(3,3,2,'2023-05-01');

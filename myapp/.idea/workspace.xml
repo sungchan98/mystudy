@@ -5,25 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a84827e7-6d13-4c5e-bb9d-79b24217473a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/AssignmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/myapp.app.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/logs/file/sample.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/RootConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/config/RootConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AboutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AboutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Assignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/AttachedFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/AssignmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/AssignmentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/AttachedFileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/AttachedFileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/mapper/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/mapper/MemberMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/webapp/WEB-INF/jsp/board/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/0ab3bdfc-5cf1-4081-aa20-84c4abc71364" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/24a2d386-50f2-42c2-9a75-a4364a571424" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/2e61aea0-4caf-42b7-b42e-807b23323c95" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/044e0bcd-109b-44e1-a361-33f7c581884a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/0659a753-5663-4c51-9e48-61d90e2df2dc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/2e3b787c-da70-4bd3-9a48-1bd5500e3e73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/78c76397-1345-49e8-ad20-daab1141a7d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/807ab687-9a8d-4800-8a14-1f0aaec0e7e1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/webapp/upload/board/bd59c4c3-98e5-406b-ba9b-fe1349fa3ca0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/about_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/about_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/form_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/form_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/list_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/list_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/view_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/assignment/view_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/form_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/form_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/login_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/auth/login_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/form_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/form_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/list_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/list_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/view_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/board/view_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/error_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/error_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/footer_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/footer_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/header_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/header_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/home_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/home_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/form_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/form_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/list_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/list_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/view_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/temp/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/jsp/member/view_jsp.java" beforeDir="false" />
     </list>
     <list id="8fdbd381-122d-4262-90ab-be4499feb56a" name="tjdah 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,43 +159,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.myapp [build].executor": "Run",
-    "Gradle.myapp [classes].executor": "Run",
-    "Gradle.myapp [clean].executor": "Run",
-    "Gradle.myapp [run].executor": "Run",
-    "Gradle.myapp 빌드.executor": "Run",
-    "Gradle.myapp:app [:app:App.main()].executor": "Run",
-    "Gradle.myapp:app [:app:DaoTest.main()].executor": "Run",
-    "Gradle.myapp:app [:app:QueueTest.main()].executor": "Run",
-    "Gradle.myapp:app [:app:ScoreTest.main()].executor": "Run",
-    "Gradle.myapp:app [:app:StackTest.main()].executor": "Run",
-    "Gradle.myapp:app [:app:Test.main()].executor": "Run",
-    "Gradle.myapp:app-api [build].executor": "Run",
-    "Gradle.myapp:app-client [build].executor": "Run",
-    "Gradle.myapp:app-client [classes].executor": "Run",
-    "Gradle.myapp:app-client [run].executor": "Run",
-    "Gradle.myapp:app-common [build].executor": "Run",
-    "Gradle.myapp:app-common [classes].executor": "Run",
-    "Gradle.myapp:app-server [build].executor": "Run",
-    "Gradle.myapp:app-server [run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/Users/eomjinyoung/git/bitcamp-study/myapp/app/src/main/java/bitcamp/myapp",
-    "last_opened_file_path": "/Users/eomjinyoung/git/bitcamp-study/myapp/app/src/main/resources/mapper",
-    "project.structure.last.edited": "프로젝트",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "애플리케이션.ScoreTest.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.myapp [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:DaoTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:QueueTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:ScoreTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:StackTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app [:app:Test.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-api [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-client [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-common [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-common [classes].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-server [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.myapp:app-server [run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/eomjinyoung/git/bitcamp-study/myapp/app/src/main/java/bitcamp/myapp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/eomjinyoung/git/bitcamp-study/myapp/app/src/main/resources/mapper&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;애플리케이션.ScoreTest.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/resources/mapper" />
@@ -174,7 +221,7 @@
       <recent name="bitcamp.myapp.controller.assignment" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.myapp [classes]">
+  <component name="RunManager" selected="Gradle.myapp [run]">
     <configuration name="ScoreTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bitcamp.myapp.servlet.ScoreTest" />
       <module name="myapp.app.main" />
@@ -282,8 +329,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.myapp [classes]" />
         <item itemvalue="Gradle.myapp [run]" />
+        <item itemvalue="Gradle.myapp [classes]" />
         <item itemvalue="Gradle.myapp [build]" />
         <item itemvalue="애플리케이션.ScoreTest" />
       </list>
@@ -315,7 +362,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java</url>
-          <line>102</line>
+          <line>99</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

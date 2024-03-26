@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,20 +21,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/board")
-public class BoardController {
+public class BoardController implements InitializingBean {
 
-  private final Log log = LogFactory.getLog(this.getClass());
-  private BoardService boardService;
+  private static final Log log = LogFactory.getLog(BoardController.class);
+  private final BoardService boardService;
+  private final ServletContext servletContext;
   private String uploadDir;
-  @Autowired
-  private ApplicationContext ctx;
 
-  public BoardController(BoardService boardService, ServletContext sc) {
-    log.debug("BoardController() 호출됨!");
-    this.boardService = boardService;
-    this.uploadDir = sc.getRealPath("/upload/board");
+  @Override
+  public void afterPropertiesSet() throws Exception {
+    this.uploadDir = servletContext.getRealPath("/upload/board");
   }
 
   @GetMapping("form")
@@ -66,14 +65,12 @@ public class BoardController {
         }
         String filename = UUID.randomUUID().toString();
         file.transferTo(new File(this.uploadDir + "/" + filename));
-        AttachedFile attachedFile = AttachedFile.builder()
-            .filePath(filename)
-            .build();
-
-        files.add(attachedFile);
+        files.add(AttachedFile.builder().filePath(filename).build());
       }
     }
-    board.setFiles(files);
+    if (files.size() > 0) {
+      board.setFiles(files);
+    }
 
     boardService.add(board);
 
@@ -133,7 +130,9 @@ public class BoardController {
         files.add(AttachedFile.builder().filePath(filename).build());
       }
     }
-    board.setFiles(files);
+    if (files.size() > 0) {
+      board.setFiles(files);
+    }
 
     boardService.update(board);
 
