@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>비트캠프 데브옵스 5기</title>
+</head>
+<body>
+
+<div data-th-replace="header :: header">머리말</div>
+
+<h1>${boardName}</h1>
+<a href='/app/board/form?category=${category}'>새 글</a>
+<table border='1'>
+  <thead>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>등록일</th>
+    <th>첨부파일</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <c:forEach items="${list}" var="board">
+    <tr>
+      <td>${board.no}</td>
+      <td><a href='/app/board/view?category=${category}&no=${board.no}'>${board.title}</a></td>
+      <td>${board.writer.name}</td>
+      <td>
+        <fmt:formatDate pattern="yyyy-MM-dd" value="${board.createdDate}"/>
+      </td>
+      <td>${board.fileCount}</td>
+    </tr>
+  </c:forEach>
+
+  </tbody>
+</table>
+
+<div data-th-replace="footer :: footer">꼬리말</div>
+
+</body>
+</html>
