@@ -8,24 +8,23 @@
 
 <div data-th-replace="header :: header">머리말</div>
 
-<h1 data-th-text="${boardName}"></h1>
-<form action='update' data-th-action="@{update}" data-th-object="${board}"
+<h1 data-th-text="${boardName}">게시글</h1>
+<form action="update" data-th-action="@{update}" data-th-object="${board}"
       enctype='multipart/form-data'
       method='post'>
-  <input data-th-value='${category}' name='category' type='hidden'>
+  <input data-th-value="${category}" name='category' type='hidden'>
   <div>
-    번호: <input data-th-value='*{no}' name='no' readonly type='text' value="100">
+    번호: <input data-th-value="*{no}" name='no' readonly type='text' value="100">
   </div>
   <div>
-    제목: <input data-th-value='*{title}' name='title' type='text' value="제목">
+    제목: <input data-th-value="*{title}" name='title' type='text' value="제목입니다.">
   </div>
   <div>
-    내용: <textarea data-th-text="*{content}" name='content'>내용</textarea>
+    내용: <textarea data-th-text="*{content}" name='content'>내용입니다.</textarea>
   </div>
   <div>
-    작성자: <input data-th-value='*{writer.name}' readonly type='text' value="임꺽정">
+    작성자: <input data-th-value="*{writer.name}" readonly type='text' value="홍길동">
   </div>
-
 
   <div data-th-if="${category == 1}">
     첨부파일: <input multiple name='attachedFiles' type='file'>
@@ -38,7 +37,7 @@
       </li>
     </ul>
   </div>
-  
+
   <div>
     <button>변경</button>
     <a data-th-href="@{delete(category=${category},no=*{no})}">[삭제]</a>

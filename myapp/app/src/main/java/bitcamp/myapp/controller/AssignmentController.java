@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/assignment")
 public class AssignmentController {
 
-  private final Log log = LogFactory.getLog(AssignmentController.class);
+  private static final Log log = LogFactory.getLog(AssignmentController.class);
   private final AssignmentService assignmentService;
 
   @GetMapping("form")

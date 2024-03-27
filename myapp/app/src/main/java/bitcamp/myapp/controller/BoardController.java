@@ -68,7 +68,6 @@ public class BoardController implements InitializingBean {
         files.add(AttachedFile.builder().filePath(filename).build());
       }
     }
-
     if (files.size() > 0) {
       board.setFiles(files);
     }

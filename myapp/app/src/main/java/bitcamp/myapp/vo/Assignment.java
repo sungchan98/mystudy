@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import lombok.Data;
 
-
-@Data //= @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
+@Data // = @Getter + @Setter + @ToString + @EqualsAndHashCode + @RequiredArgsConstructor
 public class Assignment implements Serializable {
 
   private static final long serialVersionUID = 100L;
