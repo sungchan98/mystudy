@@ -7,6 +7,10 @@ repositories {
 }
 
 dependencies {
+
+    // AWS S3 API 라이브러리
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.688'
+
     // MySQL JDBC Driver
     implementation 'com.mysql:mysql-connector-j:8.3.0'
 
@@ -42,7 +46,7 @@ dependencies {
 
     // Thymeleaf 라이브러리
     implementation 'org.thymeleaf:thymeleaf-spring5:3.1.2.RELEASE'
-    
+
     // Lombok 라이브러리
     // => 컴파일 할 때만 이 라이브러리를 사용한다.
     //    컴파일이 완료된 후에는 이 라이브러리가 필요없다.
