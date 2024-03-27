@@ -10,7 +10,7 @@
 
 <h1>${boardName}</h1>
 
-<form action='/app/board/add' enctype='multipart/form-data' method='post'>
+<form action='add' data-th-action="@add" enctype='multipart/form-data' method='post'>
   <input name='category' type='hidden' value='${category}'>
   <div>
     제목: <input name='title' type='text'>
