@@ -8,21 +8,19 @@
 
 <div data-th-replace="header :: header">머리말</div>
 
-<h1>${boardName}</h1>
+<h1 data-th-text="${boardName}">게시글</h1>
 
-<form action='add' data-th-action="@add" enctype='multipart/form-data' method='post'>
-  <input name='category' type='hidden' value='${category}'>
+<form action='add' data-th-action="@{add}" enctype='multipart/form-data' method='post'>
+  <input data-th-value='${category}' name='category' type='hidden'>
   <div>
     제목: <input name='title' type='text'>
   </div>
   <div>
     내용: <textarea name='content'></textarea>
   </div>
-  <c:if test="${category == 1}">
-    <div>
-      첨부파일: <input multiple name='attachedFiles' type='file'>
-    </div>
-  </c:if>
+  <div data-th-if="${category == 1}">
+    첨부파일: <input multiple name='attachedFiles' type='file'>
+  </div>
 
   <div>
     <button>등록</button>
