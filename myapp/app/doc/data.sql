@@ -44,3 +44,11 @@ insert into assignments(assignment_no,title,content,deadline)
   values(5,'과제5','내용5','2024-5-5');
 
 
+-------------------------------------------------------------------
+SELECT u.*, p.*
+FROM users u
+INNER JOIN purchases p ON u.user_no = p.user_no;
+
+SELECT u.email,u.nickname,p.price,p.vigo
+FROM users u
+INNER JOIN purchases p ON u.user_no = p.user_no;
