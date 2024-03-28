@@ -32,7 +32,6 @@ public class BoardController {
   @Value("${ncp.ss.bucketname}")
   private String bucketName;
 
-
   @GetMapping("form")
   public void form(int category, Model model) throws Exception {
     model.addAttribute("boardName", category == 1 ? "게시글" : "가입인사");
