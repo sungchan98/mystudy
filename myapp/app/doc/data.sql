@@ -11,16 +11,37 @@ insert into members(member_no,email,name,password,created_date)
   values(105,'user5@test.com','user5',sha2('1111',256),'2024-5-5');
 
 -- boards 테이블 데이터
-insert into boards(board_no,title,content,writer,category)
-  values(1, '제목1','내용1',101, 1);
-insert into boards(board_no,title,content,writer,category)
-  values(2, '제목2','내용2',102, 1);
-insert into boards(board_no,title,content,writer,category)
-  values(3, '제목3','내용3',102, 2);
-insert into boards(board_no,title,content,writer,category)
-  values(4, '제목4','내용4',104, 2);
-insert into boards(board_no,title,content,writer,category)
-  values(5, '제목5','내용5',104, 2);
+insert into boards(board_no,title,content,writer,category),
+  values(1, '제목1','내용1',101, 1),
+  values(2, '제목2','내용2',102, 1),
+  values(3, '제목3','내용3',102, 1),
+  values(4, '제목4','내용4',104, 1),
+  values(5, '제목5','내용5',104, 1),
+  values(6, '제목6','내용1',101, 1),
+  values(7, '제목7','내용2',102, 1),
+  values(8, '제목8','내용3',102, 1),
+  values(9, '제목9','내용4',104, 1),
+  values(10, '제목10','내용5',104, 1),
+  values(11, '제목11','내용1',101, 1),
+  values(12, '제목12','내용2',102, 1),
+  values(13, '제목13','내용3',102, 1),
+  values(14, '제목14','내용4',104, 1),
+  values(15, '제목15','내용5',104, 1),
+  values(16, '제목16','내용1',101, 1),
+  values(17, '제목17','내용1',101, 2),
+  values(18, '제목18','내용1',101, 2),
+  values(19, '제목19','내용1',101, 2),
+  values(20, '제목20','내용1',101, 2),
+  values(21, '제목21','내용1',101, 2),
+  values(22, '제목22','내용1',101, 2),
+  values(23, '제목23','내용1',101, 2),
+  values(24, '제목24','내용1',101, 2),
+  values(25, '제목25','내용1',101, 2),
+  values(26, '제목26','내용1',101, 2);
+
+
+
+
 
 -- board_files 테이블 데이터
 insert into board_files(file_no,file_path,board_no) values
@@ -42,6 +63,25 @@ insert into assignments(assignment_no,title,content,deadline)
   values(4,'과제4','내용4','2024-4-4');
 insert into assignments(assignment_no,title,content,deadline)
   values(5,'과제5','내용5','2024-5-5');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -------------------------------------------------------------------
