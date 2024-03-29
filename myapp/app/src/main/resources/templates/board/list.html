@@ -33,8 +33,10 @@
 
   </tbody>
 </table>
-[<a href="">이전</a>]
-[<a href="">다음</a>]
+[<a data-th-href="@{list(category=${category},pageNo=${pageNo},pageSize=${pageSize})}"
+    href="list">이전</a>]
+[<a data-th-href="@{list(category=${category},pageNo=${pageNo},pageSize=${pageSize})}"
+    href="list">다음</a>]
 <p></p>
 
 <div data-th-replace="footer :: footer">꼬리말</div>
