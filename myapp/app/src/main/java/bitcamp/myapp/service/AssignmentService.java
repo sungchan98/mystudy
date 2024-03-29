@@ -15,4 +15,6 @@ public interface AssignmentService {
 
   int delete(int no);
 
+  int countAll();
+
 }

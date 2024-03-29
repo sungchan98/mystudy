@@ -38,4 +38,8 @@ public class DefaultAssignmentService implements AssignmentService {
   public int delete(int no) {
     return assignmentDao.delete(no);
   }
+
+  public int countAll() {
+    return assignmentDao.countAll();
+  }
 }

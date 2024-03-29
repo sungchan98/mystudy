@@ -20,4 +20,5 @@ public interface AssignmentDao {
 
   int update(Assignment assignment);
 
+  int countAll();
 }

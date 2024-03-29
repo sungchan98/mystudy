@@ -45,17 +45,17 @@ public class AssignmentController {
       pageNo = 1;
     }
 
-    //int numOfRecord = memberService.countAll();
-    // int numOfPage = numOfRecord / pageSize + ((numOfRecord % pageSize > 0 ? 1 : 0));
+    int numOfRecord = assignmentService.countAll();
+    int numOfPage = numOfRecord / pageSize + ((numOfRecord % pageSize > 0 ? 1 : 0));
 
-//    if (pageNo > numOfPage) {
-//      pageNo = numOfPage;
-//    }
+    if (pageNo > numOfPage) {
+      pageNo = numOfPage;
+    }
 
     model.addAttribute("list", assignmentService.list(pageNo, pageSize));
     model.addAttribute("pageNo", pageNo);
     model.addAttribute("pageSize", pageSize);
-    //   model.addAttribute("numOfPage", numOfPage);
+    model.addAttribute("numOfPage", numOfPage);
   }
 
   @GetMapping("view")
