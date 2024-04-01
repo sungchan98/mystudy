@@ -56,3 +56,10 @@ alter table members
 
 alter table boards
   add constraint boards_fk foreign key (writer) references members(member_no);
+
+
+
+----------------------------------------------------------------
+SELECT su.*, s.*
+FROM schools s
+ JOIN school_users su ON su.school_no = su.user_no;
