@@ -22,3 +22,99 @@ school_users s on s.school_no = c.school_no
  join
 users u on u.user_no = s.user_no
 where s.school_no =1 and u.user_no =2;
+
+
+-----------
+select
+  su.school_no,
+  s.school_no,
+  p.school_no,
+  p.title,
+  p.content,
+  s.name,
+  s.photo
+from
+  schools as s join
+  school_users as su join
+  post as p 
+on s.school_no = p.school_no
+    
+    
+order by
+    now_member_count desc
+
+SELECT su.user_no, u.name AS user_name, s.name AS school_name, sc.name AS grade_name
+FROM school_users su
+INNER JOIN users u ON su.user_no = u.user_no
+INNER JOIN schools s ON su.school_no = s.school_no
+INNER JOIN schools sc ON su.grade_no = sc.school_no;
+
+--- 내가 가입한 스쿨의 게시글
+
+    SELECT
+      u.user_no,
+      u.name AS user_name,
+      p.post_no,
+      s.school_no,
+      p.created_at,
+      (select count(*) from likes as l where l.post_no=p.post_no) as like_count,
+      (select count(*) from comments as c where c.post_no=p.post_no) as comment_count,
+      s.name AS school_name,
+      s.photo AS school_photo,
+      p.content AS post_content,
+      f.path,
+      f.name,
+      f.post_no
+    FROM
+      posts p
+    INNER JOIN schools s ON s.school_no = p.school_no
+    INNER JOIN users u ON p.user_no = u.user_no
+    LEFT OUTER JOIN files f ON p.post_no = f.post_no
+    where p.user_no=#{no}
+    order by p.created_at desc;
+
+
+  ---- 좋아요 많은 게시글 보기
+      SELECT
+      u.user_no,
+      u.name AS user_name,
+      p.post_no,
+      s.school_no,
+      p.created_at,
+      (select count(*) from likes as l where l.post_no=p.post_no) as like_count,
+      (select count(*) from comments as c where c.post_no=p.post_no) as comment_count,
+      s.name AS school_name,
+      s.photo AS school_photo,
+      p.content AS post_content,
+      f.path,
+      f.name,
+      f.post_no
+    FROM
+      posts p
+    INNER JOIN schools s ON s.school_no = p.school_no
+    INNER JOIN users u ON p.user_no = u.user_no
+    LEFT OUTER JOIN files f ON p.post_no = f.post_no
+   order by like_count desc;
+
+
+-- 팔로밍 게시글 보기
+    SELECT
+      u.user_no,
+      u.name AS user_name,
+      p.post_no,
+      s.school_no,
+      p.created_at,
+      (select count(*) from likes as l where l.post_no=p.post_no) as like_count,
+      (select count(*) from comments as c where c.post_no=p.post_no) as comment_count,
+      s.name AS school_name,
+      s.photo AS school_photo,
+      p.content AS post_content,
+      f.path,
+      f.name,
+      f.post_no
+    FROM
+      posts p
+    INNER JOIN schools s ON s.school_no = p.school_no
+    INNER JOIN users u ON p.user_no = u.user_no
+    LEFT OUTER JOIN files f ON p.post_no = f.post_no
+   order by like_count desc;

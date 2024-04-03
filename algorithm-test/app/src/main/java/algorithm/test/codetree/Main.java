@@ -6,34 +6,25 @@ public class Main {
   public static void main(String[] args) {
     // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
-    int a = sc.nextInt();
-    int b = sc.nextInt();
-
-    int i = 0;
     int arr[] = new int[100];
-    int cntArr[] = new int[100];
-    int remain[] = new int[100];
-    int sum = 0;
+    final int INT_MAX = Integer.MAX_VALUE;
+    final int INT_MIN = Integer.MIN_VALUE;
 
-    while (true) {
-      i++;
-      if (a <= 1) {
+    int maxVal = INT_MIN;
+    int minVal = INT_MAX;
+
+    for (int i = 0; i < 100; i++) {
+      arr[i] = sc.nextInt();
+      if (arr[i] == 999 || arr[i] == -999) {
         break;
       }
-      arr[i] = a;
-      remain[i] = a % b;
-      if (arr[i] / b != 0) {
-        cntArr[remain[i]]++;
+      if (minVal > arr[i]) {
+        minVal = arr[i];
       }
-      a = a / b;
-      sum = sum + (cntArr[remain[i]] * cntArr[remain[i]]);
-
-      // System.out.print(remain[i] + " ");
-      // System.out.println();
-      // System.out.print(cntArr[i] + " ");
-      System.out.print(cntArr[remain[i]] + " ");
+      if (maxVal < arr[i]) {
+        maxVal = arr[i];
+      }
     }
-
-    System.out.print(sum);
+    System.out.printf(maxVal + " " + minVal);
   }
 }
