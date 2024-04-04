@@ -34,8 +34,8 @@ public class AssignmentController {
   @GetMapping("list")
   public void list(
       @RequestParam(defaultValue = "1") int pageNo,
-      @RequestParam(defaultValue = "3") int pageSize
-      , Model model) throws Exception {
+      @RequestParam(defaultValue = "3") int pageSize,
+      Model model) throws Exception {
 
     if (pageSize < 3 || pageSize > 20) {
       pageSize = 3;
@@ -46,7 +46,7 @@ public class AssignmentController {
     }
 
     int numOfRecord = assignmentService.countAll();
-    int numOfPage = numOfRecord / pageSize + ((numOfRecord % pageSize > 0 ? 1 : 0));
+    int numOfPage = numOfRecord / pageSize + ((numOfRecord % pageSize) > 0 ? 1 : 0);
 
     if (pageNo > numOfPage) {
       pageNo = numOfPage;

@@ -5,15 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a84827e7-6d13-4c5e-bb9d-79b24217473a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../algorithm-test/app/src/main/java/algorithm/test/codetree/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../algorithm-test/app/src/main/java/algorithm/test/codetree/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/doc/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/doc/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/doc/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/AssignmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/dao/BoardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/dao/BoardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/AssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/AssignmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultAssignmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultBoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/vo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/service/impl/DefaultMemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/AssignmentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/AssignmentDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/BoardDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/board/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/board/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/bitcamp/myapp/dao/MemberDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/config/ncp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/config/ncp.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/board/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/board/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/board/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/board/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/member/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/member/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../sql/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../team-project" beforeDir="false" afterPath="$PROJECT_DIR$/../team-project" afterDir="false" />
     </list>
     <list id="8fdbd381-122d-4262-90ab-be4499feb56a" name="tjdah 님이 변경한 내용" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -315,17 +331,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/bitcamp/myapp/controller/BoardController.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -31,6 +31,8 @@
       created_date
     from
       members
+    order by
+      name
     limit #{rowCount} offset #{offset}
   </select>
 

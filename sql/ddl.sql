@@ -97,7 +97,7 @@ INNER JOIN schools sc ON su.grade_no = sc.school_no;
    order by like_count desc;
 
 
--- 팔로밍 게시글 보기
+-- 팔로잉 게시글 보기
     SELECT
       u.user_no,
       u.name AS user_name,

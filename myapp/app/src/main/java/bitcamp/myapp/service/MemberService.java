@@ -16,6 +16,6 @@ public interface MemberService {
   int update(Member member);
 
   int delete(int no);
-  
+
   int countAll();
 }

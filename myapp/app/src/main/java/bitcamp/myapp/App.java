@@ -23,7 +23,6 @@ public class App {
 
   @GetMapping("/home")
   public void home() {
-    // return "home"; // ==> ThymeleafViewResolver가 처리한다.
   }
 
   @GetMapping("/about")
