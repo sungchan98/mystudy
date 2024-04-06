@@ -116,5 +116,48 @@ INNER JOIN schools sc ON su.grade_no = sc.school_no;
       posts p
     INNER JOIN schools s ON s.school_no = p.school_no
     INNER JOIN users u ON p.user_no = u.user_no
+    INNER JOIN follows ON follows.user_no2 = p.user_no
     LEFT OUTER JOIN files f ON p.post_no = f.post_no
+
    order by like_count desc;
+
+
+   ----
+   select 
+    c.class_no,
+    c.school_no,
+    c.name,
+    c.location,
+    c.content,
+    c.now_at
+
+   from 
+      classes c
+
+
+
+
+
+      ----------------------
+SELECT DISTINCT
+    u.user_no,
+    u.name as user_name,
+    u.photo,
+    p.post_no,
+    p.created_at,
+    p.content,
+    c.content as content_content,
+    s.school_no,
+    f.path,
+    f.name as file_name
+FROM
+    posts p
+INNER JOIN school_users su ON p.school_no = su.school_no
+INNER JOIN users u ON p.user_no = u.user_no
+LEFT OUTER JOIN schools s ON p.school_no = s.school_no
+LEFT OUTER JOIN comments c ON p.post_no = c.post_no
+LEFT OUTER JOIN files f ON p.post_no = f.post_no
+WHERE
+    p.school_no = 1 
+ORDER BY
+    p.created_at DESC;
