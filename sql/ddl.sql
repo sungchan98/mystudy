@@ -161,3 +161,98 @@ WHERE
     p.school_no = 1 
 ORDER BY
     p.created_at DESC;
+------------------------------
+
+    SELECT
+      u.grade AS userGrade,
+      su.grade_no AS schoolUserGradeNo,
+      (SELECT COUNT(*) FROM school_users WHERE grade_no = 4) AS user_manager_count
+    FROM
+      users u
+    INNER JOIN
+      school_users su ON u.user_no = su.user_no
+    HAVING
+      user_manager_count = 1 AND u.grade = 0;
+
+  ------------------------------------
+
+UPDATE
+  users SET grade = 4 WHERE user_no = 4;
+
+
+  ---------------------------------
+
+
+    SELECT
+     -- u.user_no AS userNo,
+     -- u.grade AS userGrade,
+     -- su.grade_no AS schoolUserGradeNo,
+      (SELECT COUNT(*) FROM users u INNER JOIN school_users su ON u.user_no = su.user_no WHERE su.grade_no = 4) AS user_manager_count -- 자기가 매니저인 스쿨의 개수
+      (SELECT COUNT(*) FROM WHERE u.user_no = su.user_no) AS user_school_count-- 유저가 가입한 스쿨의 개수
+    FROM
+      users u
+    INNER JOIN
+      school_users su ON u.user_no = su.user_no
+    ORDER BY
+      u.user_no;
+    HAVING
+      user_manager_count = 1 AND su.grade = 1;
+
+
+
+  ----------------------------
+
+
+  SELECT DISTINCT
+    u.user_no AS userNo,
+  (
+    SELECT COUNT(*) 
+    FROM users u 
+    INNER JOIN school_users su ON u.user_no = su.user_no 
+    WHERE su.grade_no = 4
+  ) AS user_manager_count, -- 자기가 매니저인 스쿨의 개수
+  (
+    SELECT COUNT(*) 
+    FROM school_users 
+    WHERE user_no = su.user_no
+  ) AS user_school_count -- 유저가 가입한 스쿨의 개수
+FROM
+  users u
+INNER JOIN
+  school_users su ON u.user_no = su.user_no;
+ORDER BY
+  u.user_no;
+-------------------------
+
+   SELECT DISTINCT
+     u.user_no AS userNo,
+     u.grade,
+  (
+    SELECT COUNT(*) 
+    FROM school_users su 
+    WHERE su.grade_no = 4 AND su.user_no = 1
+  ) AS user_manager_count,
+   (
+    SELECT COUNT(*)
+    FROM school_users
+    WHERE user_no = su.user_no
+   ) AS user_school_count
+  FROM
+   users u
+  INNER JOIN
+  school_users su ON u.user_no = su.user_no
+  ORDER BY
+    u.user_no;
+
+-----------------------------------
+
+    SELECT COUNT(*) 
+    FROM school_users su 
+    WHERE su.grade_no = 4 AND su.user_no = 1;
+-----------------------------------------
+
+SELECT
+  su.grade_no
+FROM
+  school_users su
+WHERE 
