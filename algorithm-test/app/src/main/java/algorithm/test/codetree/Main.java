@@ -4,27 +4,26 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-    // 여기에 코드를 작성해주세요.
-    Scanner sc = new Scanner(System.in);
-    int arr[] = new int[100];
-    final int INT_MAX = Integer.MAX_VALUE;
-    final int INT_MIN = Integer.MIN_VALUE;
+        // 여기에 코드를 작성해주세요.
+        Scanner sc = new Scanner(System.in);
 
-    int maxVal = INT_MIN;
-    int minVal = INT_MAX;
+        int a = sc.nextInt();
+        int b = sc.nextInt();
 
-    for (int i = 0; i < 100; i++) {
-      arr[i] = sc.nextInt();
-      if (arr[i] == 999 || arr[i] == -999) {
-        break;
-      }
-      if (minVal > arr[i]) {
-        minVal = arr[i];
-      }
-      if (maxVal < arr[i]) {
-        maxVal = arr[i];
-      }
-    }
-    System.out.printf(maxVal + " " + minVal);
+        int arrA[] = new int[100];
+        int arrB[] = new int[100];
+
+        for(int i = 0; i < a; i++){
+            arrA[i] = sc.nextInt();
+        }
+        for(int i = 0; i < b; i++){
+            arrB[i] = sc.nextInt();
+            if(arrA[i] != arrB[i]){
+                arrA[i++];
+                System.out.printf(arrA + " ");
+            }else if(arrA[i] == arrB[i]){
+                
+            }
+        }
   }
 }
