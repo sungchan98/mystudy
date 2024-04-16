@@ -256,3 +256,12 @@ SELECT
 FROM
   school_users su
 WHERE 
+
+---------------------------
+
+SELECT
+  u.user_no,
+  u.grade
+FROM
+  users u;
+
