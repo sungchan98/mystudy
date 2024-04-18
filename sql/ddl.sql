@@ -265,3 +265,11 @@ SELECT
 FROM
   users u;
 
+-----------------------------
+
+SELECT
+  s.name
+FROM
+  schools s
+WHERE  
+  s.school_no = 1;

@@ -10,7 +10,7 @@ public class Main {
     int a = sc.nextInt();
     int b = sc.nextInt();
     int idx = -1;
-    boolean c = true;
+    boolean c = false;
 
     int arrA[] = new int[100];
     int arrB[] = new int[100];
@@ -27,12 +27,14 @@ public class Main {
       if (arrA[i] != arrB[i]) {
         idx = i + 1;
         if (arrA[idx] == arrB[i]) {
-
+          c = true;
+        } else {
+          c = false;
         }
       }
     }
 
-    if (idx == -1) {
+    if (c = false) {
       System.out.print("No");
     } else {
       System.out.print("Yes");
