@@ -273,3 +273,8 @@ FROM
   schools s
 WHERE  
   s.school_no = 1;
+
+---------------------------------
+
+select * from schools
+where name=#{name} and
