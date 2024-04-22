@@ -62,14 +62,14 @@ a {
 // 그 자식 태그를 클릭했을 때만 호출된다.
 // 예) 제목을 출력하는 a 태그에 click 리스너를 등록하면
 //     정확하게 제목을 클릭해야만 동작한다.
-var el = document.querySelectorAll("tbody a");
+// var el = document.querySelectorAll("tbody a");
 
-for (var e of el) {
-  e.addEventListener("click", function(e) {
-    console.log(e.target);
-    console.log(e.target.getAttribute("data-no") + " 번 게시물의 제목을 눌렀음!");
-  });
-}
+// for (var e of el) {
+//   e.addEventListener("click", function(e) {
+//     console.log(e.target);
+//     console.log(e.target.getAttribute("data-no") + " 번 게시물의 제목을 눌렀음!");
+//   });
+// }
 </script>
 </body>
 </html>
