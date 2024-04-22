@@ -32,23 +32,23 @@ a {
   </tr>
 </thead>
 <tbody>
-  <tr data-no="1">
+  <tr href="/board/view?no=1">
     <td>1</td>
-    <td><a href="/board/view?no=1" onclick="return false;">제목</a></td>
+    <td><a href="" onclick="return false;">제목</a></td>
     <td>홍길동</td>
     <td>2019-4-29</td>
     <td>100</td>
   </tr>
-  <tr data-no="2">
+  <tr href="/board/view?no=2">
     <td>2</td>
-    <td><a href="/board/view?no=2" onclick="return false;">제목</a></td>
+    <td><a href="" onclick="return false;">제목</a></td>
     <td>임꺽정</td>
     <td>2019-4-29</td>
     <td>800</td>
   </tr>
-  <tr data-no="3">
+  <tr href="/board/view?no=3">
     <td>3</td>
-    <td><a href="/board/view?no=3" onclick="return false;">제목입니다.</a></td>
+    <td><a href="" onclick="return false;">제목입니다.</a></td>
     <td>유관순</td>
     <td>2019-4-29</td>
     <td>900</td>
@@ -62,16 +62,11 @@ a {
 // 훨씬 더 광범위하게 클릭 이벤트를 처리할 수 있다.
 // 즉 자식 태그의 이벤트를 부모 태그에서 처리할 수 있다. 
 // 어떻게? 부모로 이벤트가 전파되는 bubling 기능을 이용하는 것이다.
-var el = document.querySelectorAll("tr > td:nth-child(2)");
+var el = document.querySelectorAll("tbody > tr");
 
 for (var e of el) {
   e.addEventListener("click", function(e) {
-    // target: target 단게의 태그를 가리킨다.
-    // => td 태그를 클릭하면 target이 가리키는 태그 객체는 td 태그이고,
-    //    a 태그를 클릭하면 target이 가리키는 태그 객체는 a 태그이다.
-
-    console.log(e.target);
-    //window.location.href = "https://www.daum.net/board?no=" + e.currentTarget.getAttribute("data-no");
+    window.location.href =  "board/view?no=" + e.target.getAttribute("data-no");
   });   
 }
 </script>
