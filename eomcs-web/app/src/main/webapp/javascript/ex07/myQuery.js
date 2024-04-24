@@ -1,20 +1,21 @@
-function myQuery(p){
+function myQuery(p) {
   let e = document.querySelector(p);
-  e.val = function(v){
-    if (v == undifined) {
-    return e.value;
+
+  e.val = function(v) {
+    if (v == undefined) {
+      return e.value;
     } else {
-    e.value = v;
+      e.value = v;
     }
   };
 
-  e.on = function(eventName,listener){
-    e.addEventListener(eventName,listener);
-  });
+  e.on = function(eventName, listener) {
+    e.addEventListener(eventName, listener);
+  };
 
-  e.click = function(listener){
-    if(listener){
-      e.on=('click',listener);
+  e.click = function(listener) {
+    if (listener) {
+      e.on('click', listener);
     } else {
       e.dispatchEvent(new MouseEvent('click'));
     }
@@ -22,5 +23,6 @@ function myQuery(p){
 
   return e;
 }
+
 
 let $ = myQuery;
