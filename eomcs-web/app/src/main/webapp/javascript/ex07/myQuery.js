@@ -24,5 +24,15 @@ function myQuery(p) {
   return e;
 }
 
+myQuery.ajax = function(url, settings){
+  if(settings.method == undefined){
+  settings.method = 'get';
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.onread
+
+  x
+};
 
 let $ = myQuery;
