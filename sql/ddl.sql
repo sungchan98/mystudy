@@ -278,3 +278,9 @@ WHERE
 
 select * from schools
 where name=#{name} and
+
+------------------------------
+INSERT INTO school_users (name, user_no, password)
+SELECT username, email, password
+FROM users
+WHERE [조건];
