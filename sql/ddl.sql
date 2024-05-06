@@ -284,3 +284,17 @@ INSERT INTO school_users (name, user_no, password)
 SELECT username, email, password
 FROM users
 WHERE [조건];
+
+
+--------------
+    update schools set
+    name='샤샷',
+    photo='test',
+    content='test2244'
+    where
+    school_no=15
+
+
+  DELETE FROM school_tags WHERE school_no = 12;
+  DELETE FROM school_users WHERE school_no = 12;
+  DELETE FROM schools WHERE school_no = 12;
