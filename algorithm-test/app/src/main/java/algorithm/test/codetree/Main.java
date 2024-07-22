@@ -4,27 +4,29 @@ import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-    // 여기에 코드를 작성해주세요.
     Scanner sc = new Scanner(System.in);
 
-    int n = sc.nextInt();
-    int arr[] = new int[n];
-    int a = 0;
-    final int INT_MAX = Integer.MAX_VALUE;
-    int minVal = INT_MAX;
+    String a = sc.next();
+    String b = sc.next();
 
-    for (int i = 0; i < n; i++) {
-      arr[i] = sc.nextInt();
-    }
-
-    for (int i = n - 1; i > 0; i--) {
-
-      for (int j = i - 1; j >= 0; j--) {
-        if (arr[i] - arr[j] < minVal) {
-          minVal = arr[i] - arr[j];
-        }
+    for (int i = 0; i < a.length(); i++) {
+      if (a.charAt(i) >= '0' && a.charAt(i) <= '9') {
+        a += a.charAt(i);
+      } else {
+        break;
       }
     }
-    System.out.println(minVal);
+
+    for (int i = 0; i < b.length(); i++) {
+      if (b.charAt(i) >= '0' && b.charAt(i) <= '9') {
+        b += (b.charAt(i) - '0');
+      } else {
+        break;
+      }
+    }
+
+    System.out.println(Integer.parseInt(a));
+
+
   }
 }
