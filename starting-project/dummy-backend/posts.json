@@ -1,6 +1,1 @@
-{
-  "posts": [
-    { "body": "testtesttest", "author": "jung", "id": "0.43715661793667016" },
-    { "body": "test", "author": "chan", "id": "0.16370265722298938" }
-  ]
-}
+{"posts":[{"body":"안녕하세요","author":"배고파","id":"0.5702869075284844"},{"body":"testtesttest","author":"jung","id":"0.43715661793667016"},{"body":"test","author":"chan","id":"0.16370265722298938"}]}
