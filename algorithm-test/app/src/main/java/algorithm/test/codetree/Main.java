@@ -5,28 +5,18 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int m = sc.nextInt();
 
-    String a = sc.next();
-    String b = sc.next();
+    // int[][] arr2d = new int[n][m];
 
-    for (int i = 0; i < a.length(); i++) {
-      if (a.charAt(i) >= '0' && a.charAt(i) <= '9') {
-        a += a.charAt(i);
-      } else {
-        break;
+    for (int k = 0; k <= n + m; k++) {
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+          System.out.printf("%d %d %d\n", k, i, j);
+        }
       }
     }
-
-    for (int i = 0; i < b.length(); i++) {
-      if (b.charAt(i) >= '0' && b.charAt(i) <= '9') {
-        b += (b.charAt(i) - '0');
-      } else {
-        break;
-      }
-    }
-
-    System.out.println(Integer.parseInt(a));
-
-
   }
 }
+
