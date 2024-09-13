@@ -17,22 +17,22 @@ public class Main {
 
     // 최댓값 구하기
     for (int i = 0; i < n; i++) {
-      if (grade[i] > M) {
+      if (grade[i] >= M) {
         M = grade[i];
       }
     }
 
-    // 주작한 성적
+    double[] newGrade = new double[n];
     for (int i = 0; i < n; i++) {
-      if (grade[i] != M) {
-        grade[i] = grade[i] / M * 100;
-      }
+
+      newGrade[i] = (double) grade[i] / M * 100;
+
     }
 
     double mean = 0;
 
     for (int i = 0; i < n; i++) {
-      mean += grade[i];
+      mean += newGrade[i];
     }
 
     System.out.print(mean / n);
