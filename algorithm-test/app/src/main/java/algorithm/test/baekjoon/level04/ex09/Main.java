@@ -20,9 +20,12 @@ public class Main {
       int a = sc.nextInt();
       int b = sc.nextInt();
 
-      for (int j = a; j <= b; j++) {
-        arr[j] = n - j - 1;
-        // System.out.print(arr[i] + " ");
+      while (a < b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+        a++;
+        b--;
       }
     }
 
