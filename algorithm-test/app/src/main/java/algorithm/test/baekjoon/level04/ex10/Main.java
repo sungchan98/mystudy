@@ -19,9 +19,9 @@ public class Main {
     for (int i = 0; i < n; i++) {
       if (grade[i] >= M) {
         M = grade[i];
+
       }
     }
-
     double[] newGrade = new double[n];
     for (int i = 0; i < n; i++) {
 
@@ -37,6 +37,6 @@ public class Main {
 
     System.out.print(mean / n);
 
-
   }
 }
+
