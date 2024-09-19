@@ -10,8 +10,8 @@ public class Main {
     String s = sc.next();
 
     for (int i = 0; i < n; i++) {
-      // sum += Integer.parseInt(s, s.charAt(i));
-      System.out.println(Integer.parseInt(s, s.charAt(i)));
+      sum += s.charAt(i) - '0';
+
     }
 
     System.out.println(sum);
