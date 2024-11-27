@@ -1,0 +1,18 @@
+package algorithm.test.baekjoon.level05.ex06;
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String args[]) {
+
+    Scanner sc = new Scanner(System.in);
+
+    String s = sc.next();
+    int arr[] = new int[26];
+    for (int i = 0; i < 26; i++) {
+      if() {
+        arr[i] = s.indexOf(i);
+      }
+    }
+  }
+}
