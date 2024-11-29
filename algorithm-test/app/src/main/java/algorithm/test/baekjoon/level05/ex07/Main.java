@@ -11,13 +11,15 @@ public class Main {
     for (int i = 0; i < t; i++) {
       int n = sc.nextInt();
       String s = sc.next();
+
       String p = "";
+
       for (int j = 0; j < s.length(); j++) {
         for (int k = 0; k < n; k++) {
           p += s.charAt(j);
         }
       }
-      System.out.print(p);
+      System.out.println(p);
     }
   }
 }
