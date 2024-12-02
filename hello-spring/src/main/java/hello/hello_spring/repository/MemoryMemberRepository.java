@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import org.springframework.stereotype.Repository;
+
 
 public class MemoryMemberRepository implements MemberRepository{
 
@@ -31,5 +33,9 @@ public class MemoryMemberRepository implements MemberRepository{
   @Override
   public List<Member> findAll() {
     return new ArrayList<>(store.values());
+  }
+
+  public void clearStore() {
+    store.clear();
   }
 }
