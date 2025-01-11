@@ -16,7 +16,7 @@ public class Main {
     if (str.equals(str2)) {
       System.out.print(1);
     } else {
-      System.out.print(2);
+      System.out.print(0);
     }
 
   }
